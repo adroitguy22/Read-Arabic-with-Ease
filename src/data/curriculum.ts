@@ -82,7 +82,7 @@ function buildHurufIdentificationLessons(): Lesson[] {
         prompt: `Which letter is this?`,
         promptArabic: letter.forms.isolated,
         promptNote: letter.articulation,
-        audioUrl: `/audio/huruf/${letter.id}.mp3`,
+        audioUrl: `http://localhost:3001/api/audio/letter/${letter.id}`,
         letterId: letter.id,
         choices: [
           { id: letter.id, label: `${letter.name} (${letter.forms.isolated})`, isCorrect: true },
@@ -193,7 +193,7 @@ function buildHarakatLessons(): Lesson[] {
         promptArabic: `${letter.forms.isolated}${correctHaraka.symbol}`,
         promptNote: correctHaraka.tip,
         harakaId: correctHaraka.id,
-        audioUrl: `/audio/harakat/${correctHaraka.id}.mp3`, // Generic audio if available
+        audioUrl: `http://localhost:3001/api/audio/haraka/${correctHaraka.id}`, // Generic audio if available
         choices: [
           { id: correctHaraka.id, label: correctHaraka.name, isCorrect: true },
           ...distractors.map(d => ({ id: d.id, label: d.name, isCorrect: false as const }))
@@ -336,7 +336,7 @@ function buildSoundApplicationLessons(): Lesson[] {
     promptNote: l.articulation,
     letterId: l.id,
     harakaId: 'fatha',
-    audioUrl: `/audio/sound/${l.id}-fatha.mp3`,
+    audioUrl: `http://localhost:3001/api/audio/sound/${l.id}/fatha`,
     choices: [
       { id: 'correct', label: `"${l.soundHint}a"`, isCorrect: true },
       { id: 'wrong1', label: `"${l.soundHint}i"`, isCorrect: false },
@@ -671,6 +671,64 @@ function buildTajweedLessons(): Lesson[] {
             { id: 'albayt', label: 'Al-Bayt (Pronounced Lam)', isCorrect: true },
             { id: 'abbayt', label: 'Ab-Bayt (Silent Lam)', isCorrect: false }
           ]
+        },
+        {
+          id: 'tj-sun-moon-5',
+          prompt: 'Is the Lam pronounced in "Al-Fatiha"?',
+          promptArabic: 'الْفَاتِحَة',
+          promptNote: 'Fa is a Moon letter.',
+          choices: [
+            { id: 'yes', label: 'Yes - Al-Fatiha', isCorrect: true },
+            { id: 'no', label: 'No - Af-Fatiha', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-sun-moon-6',
+          prompt: 'Is the Lam pronounced in "As-Sirata"?',
+          promptArabic: 'الصِّرَاط',
+          promptNote: 'Sad is a Sun letter.',
+          choices: [
+            { id: 'no', label: 'No - As-Sirata (Silent)', isCorrect: true },
+            { id: 'yes', label: 'Yes - Al-Sirata', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-sun-moon-7',
+          prompt: 'Identify the rule for "Al-Din":',
+          promptArabic: 'الدِّين',
+          promptNote: 'Dal is a Sun letter.',
+          choices: [
+            { id: 'sun', label: 'Sun - Ad-Din (Silent Lam)', isCorrect: true },
+            { id: 'moon', label: 'Moon - Al-Din (Pronounced)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-sun-moon-8',
+          prompt: 'Identify the rule for "Al-Iman":',
+          promptArabic: 'الْإِيمَان',
+          promptNote: 'Hamza is a Moon letter.',
+          choices: [
+            { id: 'moon', label: 'Moon - Al-Iman (Pronounced)', isCorrect: true },
+            { id: 'sun', label: 'Sun - (Silent Lam)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-sun-moon-9',
+          prompt: 'Which letter type is Jim?',
+          promptArabic: 'ج',
+          choices: [
+            { id: 'moon', label: 'Moon Letter', isCorrect: true },
+            { id: 'sun', label: 'Sun Letter', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-sun-moon-10',
+          prompt: 'Which letter type is Ta?',
+          promptArabic: 'ت',
+          choices: [
+            { id: 'sun', label: 'Sun Letter', isCorrect: true },
+            { id: 'moon', label: 'Moon Letter', isCorrect: false }
+          ]
         }
       ]
     },
@@ -720,6 +778,66 @@ function buildTajweedLessons(): Lesson[] {
           choices: [
             { id: 'light', label: 'Light (after Kasra)', isCorrect: true },
             { id: 'heavy', label: 'Heavy', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-lafz-5',
+          prompt: 'How is "Allah" pronounced here?',
+          promptArabic: 'وَاللَّهُ',
+          promptNote: 'Preceded by Waw with Damma.',
+          choices: [
+            { id: 'heavy', label: 'Heavy (Tafkheem)', isCorrect: true },
+            { id: 'light', label: 'Light (Tarqeeq)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-lafz-6',
+          prompt: 'How is "Allah" pronounced here?',
+          promptArabic: 'عِبَادُ اللَّهِ',
+          promptNote: 'Preceded by Damma (du).',
+          choices: [
+            { id: 'heavy', label: 'Heavy (after Damma)', isCorrect: true },
+            { id: 'light', label: 'Light', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-lafz-7',
+          prompt: 'How is "Allah" pronounced here?',
+          promptArabic: 'فِي اللَّهِ',
+          promptNote: 'Preceded by Kasra (Fi).',
+          choices: [
+            { id: 'light', label: 'Light (Tarqeeq)', isCorrect: true },
+            { id: 'heavy', label: 'Heavy (Tafkheem)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-lafz-8',
+          prompt: 'Which rule applies?',
+          promptArabic: 'عَلَى اللَّهِ',
+          promptNote: 'Preceded by Fatha (La).',
+          choices: [
+            { id: 'heavy', label: 'Heavy - After Fatha', isCorrect: true },
+            { id: 'light', label: 'Light - After Fatha', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-lafz-9',
+          prompt: 'Which rule applies?',
+          promptArabic: 'إِيَّاكَ نَعْبُدُ',
+          promptNote: 'No "Allah" here - testing attention!',
+          choices: [
+            { id: 'none', label: 'No Lafzatullah here', isCorrect: true },
+            { id: 'heavy', label: 'Heavy', isCorrect: false }
+          ]
+        },
+        {
+          id: 'tj-lafz-10',
+          prompt: 'Complete the rule: After Fatha/Damma = ?',
+          promptArabic: 'Rule:',
+          promptNote: 'General rule for Lafzatullah.',
+          choices: [
+            { id: 'heavy', label: 'Heavy (Tafkheem)', isCorrect: true },
+            { id: 'light', label: 'Light (Tarqeeq)', isCorrect: false }
           ]
         }
       ]

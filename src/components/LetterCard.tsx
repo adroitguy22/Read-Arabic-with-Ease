@@ -60,14 +60,15 @@ export function LetterCard({
 interface LetterCardListProps {
   letterIds: string[]
   showArticulation?: boolean
-  audioBaseUrl?: string
+  /** Backend API base URL (e.g., 'http://localhost:3001') */
+  apiBaseUrl?: string
   className?: string
 }
 
 export function LetterCardList({
   letterIds,
   showArticulation = false,
-  audioBaseUrl = '/audio/huruf',
+  apiBaseUrl = 'http://localhost:3001',
   className = '',
 }: LetterCardListProps) {
   return (
@@ -78,7 +79,7 @@ export function LetterCardList({
           letterId={id}
           showForms="isolated"
           showArticulation={showArticulation}
-          audioUrl={`${audioBaseUrl}/${id}.mp3`}
+          audioUrl={`${apiBaseUrl}/api/audio/letter/${id}`}
         />
       ))}
     </div>

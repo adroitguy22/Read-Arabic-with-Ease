@@ -63,13 +63,14 @@ export function PositionComparison({
 
 interface PositionComparisonListProps {
   letterIds: string[]
-  audioBaseUrl?: string
+  /** Backend API base URL */
+  apiBaseUrl?: string
   className?: string
 }
 
 export function PositionComparisonList({
   letterIds,
-  audioBaseUrl = '/audio/positions',
+  apiBaseUrl = 'http://localhost:3001',
   className = '',
 }: PositionComparisonListProps) {
   return (
@@ -78,7 +79,7 @@ export function PositionComparisonList({
         <PositionComparison
           key={id}
           letterId={id}
-          audioUrl={`${audioBaseUrl}/${id}-forms.mp3`}
+          audioUrl={`${apiBaseUrl}/api/audio/position/${id}`}
         />
       ))}
     </div>

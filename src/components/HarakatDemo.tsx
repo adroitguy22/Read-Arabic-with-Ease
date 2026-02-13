@@ -57,14 +57,15 @@ export function HarakatDemo({
 interface HarakatDemoListProps {
   harakaIds: string[]
   letterId?: string
-  audioBaseUrl?: string
+  /** Backend API base URL */
+  apiBaseUrl?: string
   className?: string
 }
 
 export function HarakatDemoList({
   harakaIds,
   letterId = 'baa',
-  audioBaseUrl = '/audio/harakat',
+  apiBaseUrl = 'http://localhost:3001',
   className = '',
 }: HarakatDemoListProps) {
   return (
@@ -74,7 +75,7 @@ export function HarakatDemoList({
           key={id}
           harakaId={id}
           letterId={letterId}
-          audioUrl={`${audioBaseUrl}/${id}.mp3`}
+          audioUrl={`${apiBaseUrl}/api/audio/haraka/${id}`}
         />
       ))}
     </div>
