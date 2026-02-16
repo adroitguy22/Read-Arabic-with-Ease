@@ -82,7 +82,7 @@ function buildHurufIdentificationLessons(): Lesson[] {
         prompt: `Which letter is this?`,
         promptArabic: letter.forms.isolated,
         promptNote: letter.articulation,
-        audioUrl: `http://localhost:3001/api/audio/letter/${letter.id}`,
+        audioUrl: `https://read-arabic-with-ease-backend.onrender.com/api/audio/letter/${letter.id}`,
         letterId: letter.id,
         choices: [
           { id: letter.id, label: `${letter.name} (${letter.forms.isolated})`, isCorrect: true },
@@ -193,7 +193,7 @@ function buildHarakatLessons(): Lesson[] {
         promptArabic: `${letter.forms.isolated}${correctHaraka.symbol}`,
         promptNote: correctHaraka.tip,
         harakaId: correctHaraka.id,
-        audioUrl: `http://localhost:3001/api/audio/haraka/${correctHaraka.id}`, // Generic audio if available
+        audioUrl: `https://read-arabic-with-ease-backend.onrender.com/api/audio/haraka/${correctHaraka.id}`, // Generic audio if available
         choices: [
           { id: correctHaraka.id, label: correctHaraka.name, isCorrect: true },
           ...distractors.map(d => ({ id: d.id, label: d.name, isCorrect: false as const }))
@@ -336,7 +336,7 @@ function buildSoundApplicationLessons(): Lesson[] {
     promptNote: l.articulation,
     letterId: l.id,
     harakaId: 'fatha',
-    audioUrl: `http://localhost:3001/api/audio/sound/${l.id}/fatha`,
+    audioUrl: `https://read-arabic-with-ease-backend.onrender.com/api/audio/sound/${l.id}/fatha`,
     choices: [
       { id: 'correct', label: `"${l.soundHint}a"`, isCorrect: true },
       { id: 'wrong1', label: `"${l.soundHint}i"`, isCorrect: false },

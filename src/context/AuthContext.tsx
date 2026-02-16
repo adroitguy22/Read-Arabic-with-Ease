@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://read-arabic-with-ease-backend.onrender.com';
 
 interface User {
   id: string;

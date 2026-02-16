@@ -16,7 +16,7 @@ import {
   type LearnerProgress,
 } from '../types/progress'
 
-const API_URL = 'http://localhost:3001'
+const API_URL = 'https://read-arabic-with-ease-backend.onrender.com'
 
 interface ProgressContextValue {
   progress: LearnerProgress
