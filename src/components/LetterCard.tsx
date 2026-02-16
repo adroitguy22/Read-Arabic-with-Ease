@@ -68,7 +68,7 @@ interface LetterCardListProps {
 export function LetterCardList({
   letterIds,
   showArticulation = false,
-  apiBaseUrl = 'http://localhost:3001',
+  apiBaseUrl = 'https://read-arabic-with-ease-backend.onrender.com',
   className = '',
 }: LetterCardListProps) {
   return (

@@ -65,7 +65,7 @@ interface HarakatDemoListProps {
 export function HarakatDemoList({
   harakaIds,
   letterId = 'baa',
-  apiBaseUrl = 'http://localhost:3001',
+  apiBaseUrl = 'https://read-arabic-with-ease-backend.onrender.com',
   className = '',
 }: HarakatDemoListProps) {
   return (

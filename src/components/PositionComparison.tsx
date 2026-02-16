@@ -70,7 +70,7 @@ interface PositionComparisonListProps {
 
 export function PositionComparisonList({
   letterIds,
-  apiBaseUrl = 'http://localhost:3001',
+  apiBaseUrl = 'https://read-arabic-with-ease-backend.onrender.com',
   className = '',
 }: PositionComparisonListProps) {
   return (
