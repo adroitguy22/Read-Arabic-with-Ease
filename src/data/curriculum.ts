@@ -391,30 +391,39 @@ function buildSoundApplicationLessons(): Lesson[] {
 // --- Letter Combination (Advanced Stage) - Progressive word-length exercises
 function buildCombinationLessons(): Lesson[] {
   return [
-    // Stage 1: Two-letter combinations
+    // Stage 1: Two-letter combinations with Long Vowels (Madd)
     {
       id: 'combo-two-letter',
-      title: 'Two-Letter Syllables',
+      title: 'Alif-madd, Waaw Sukun and Yaa Sukun',
       category: 'combination',
-      description: 'Master simple two-letter combinations with all vowel marks.',
-      objectives: ['Read letter + vowel pairs fluently.', 'Practice with fatha, kasra, and damma.'],
-      practiceWords: ['بَا', 'بِي', 'بُو', 'تَا', 'تِي', 'تُو', 'مَا', 'مِي', 'مُو'],
+      description: 'Learn the three long vowels: Alif-madd (aa), Waaw Sukun (uu), and Yaa Sukun (ii). Combining a letter with these extends its sound.',
+      objectives: [
+        'Recognize Alif-madd (َا) - extends Fatha.',
+        'Recognize Waaw Sukun (ُو) - extends Damma.',
+        'Recognize Yaa Sukun (ِي) - extends Kasra.'
+      ],
+      practiceWords: ['بَا', 'بُو', 'بِي'],
       exercises: [
-        { id: 'two-1', prompt: 'Select the correct reading:', promptArabic: 'بَا', choices: [{ id: 'baa', label: 'Baa', isCorrect: true }, { id: 'bi', label: 'Bi', isCorrect: false }, { id: 'bu', label: 'Bu', isCorrect: false }] },
-        { id: 'two-2', prompt: 'Select the correct reading:', promptArabic: 'تِي', choices: [{ id: 'tee', label: 'Tee', isCorrect: true }, { id: 'ta', label: 'Ta', isCorrect: false }, { id: 'tu', label: 'Tu', isCorrect: false }] },
-        { id: 'two-3', prompt: 'Select the correct reading:', promptArabic: 'نُو', choices: [{ id: 'noo', label: 'Noo', isCorrect: true }, { id: 'na', label: 'Na', isCorrect: false }, { id: 'ni', label: 'Ni', isCorrect: false }] },
-        { id: 'two-4', prompt: 'Select the correct reading:', promptArabic: 'لَا', choices: [{ id: 'laa', label: 'Laa', isCorrect: true }, { id: 'li', label: 'Li', isCorrect: false }, { id: 'lu', label: 'Lu', isCorrect: false }] },
-        { id: 'two-5', prompt: 'Select the correct reading:', promptArabic: 'رِي', choices: [{ id: 'ree', label: 'Ree', isCorrect: true }, { id: 'ra', label: 'Ra', isCorrect: false }, { id: 'ru', label: 'Ru', isCorrect: false }] },
-        { id: 'two-6', prompt: 'Select the correct reading:', promptArabic: 'سُو', choices: [{ id: 'suu', label: 'Suu', isCorrect: true }, { id: 'saa', label: 'Saa', isCorrect: false }, { id: 'see', label: 'See', isCorrect: false }] },
-        { id: 'two-7', prompt: 'Select the correct reading:', promptArabic: 'هِي', choices: [{ id: 'hee', label: 'Hee', isCorrect: true }, { id: 'ha', label: 'Ha', isCorrect: false }, { id: 'hu', label: 'Hu', isCorrect: false }] },
-        { id: 'two-8', prompt: 'Select the correct reading:', promptArabic: 'فُو', choices: [{ id: 'foo', label: 'Foo', isCorrect: true }, { id: 'fa', label: 'Fa', isCorrect: false }, { id: 'fi', label: 'Fi', isCorrect: false }] },
-        { id: 'two-9', prompt: 'Select the correct reading:', promptArabic: 'قَا', choices: [{ id: 'qaa', label: 'Qaa', isCorrect: true }, { id: 'qi', label: 'Qi', isCorrect: false }, { id: 'qu', label: 'Qu', isCorrect: false }] },
-        { id: 'two-10', prompt: 'Select the correct reading:', promptArabic: 'جِي', choices: [{ id: 'jii', label: 'Jii', isCorrect: true }, { id: 'ja', label: 'Ja', isCorrect: false }, { id: 'ju', label: 'Ju', isCorrect: false }] },
-        { id: 'two-11', prompt: 'Select the correct reading:', promptArabic: 'دُو', choices: [{ id: 'duu', label: 'Duu', isCorrect: true }, { id: 'da', label: 'Da', isCorrect: false }, { id: 'di', label: 'Di', isCorrect: false }] },
-        { id: 'two-12', prompt: 'Select the correct reading:', promptArabic: 'زِي', choices: [{ id: 'zii', label: 'Zii', isCorrect: true }, { id: 'za', label: 'Za', isCorrect: false }, { id: 'zu', label: 'Zu', isCorrect: false }] },
-        { id: 'two-13', prompt: 'Select the correct reading:', promptArabic: 'شَا', choices: [{ id: 'shaa', label: 'Shaa', isCorrect: true }, { id: 'shi', label: 'Shi', isCorrect: false }, { id: 'shu', label: 'Shu', isCorrect: false }] },
-        { id: 'two-14', prompt: 'Select the correct reading:', promptArabic: 'يَا', choices: [{ id: 'yaa', label: 'Yaa', isCorrect: true }, { id: 'yi', label: 'Yi', isCorrect: false }, { id: 'yu', label: 'Yu', isCorrect: false }] },
-        { id: 'two-15', prompt: 'Select the correct reading:', promptArabic: 'خُ', choices: [{ id: 'khu', label: 'Khu', isCorrect: true }, { id: 'kha', label: 'Kha', isCorrect: false }, { id: 'khi', label: 'Khi', isCorrect: false }] },
+        // --- Alif-madd (aa) Group ---
+        { id: 'two-1', prompt: 'Select the correct reading:', promptArabic: 'بَا', choices: [{ id: 'baa', label: 'Baa (long)', isCorrect: true }, { id: 'ba', label: 'Ba (short)', isCorrect: false }, { id: 'bu', label: 'Bu', isCorrect: false }] },
+        { id: 'two-4', prompt: 'Select the correct reading:', promptArabic: 'لَا', choices: [{ id: 'laa', label: 'Laa (long)', isCorrect: true }, { id: 'la', label: 'La (short)', isCorrect: false }, { id: 'lu', label: 'Lu', isCorrect: false }] },
+        { id: 'two-9', prompt: 'Select the correct reading:', promptArabic: 'قَا', choices: [{ id: 'qaa', label: 'Qaa (long)', isCorrect: true }, { id: 'qa', label: 'Qa (short)', isCorrect: false }, { id: 'qi', label: 'Qi', isCorrect: false }] },
+        { id: 'two-13', prompt: 'Select the correct reading:', promptArabic: 'شَا', choices: [{ id: 'shaa', label: 'Shaa (long)', isCorrect: true }, { id: 'sha', label: 'Sha (short)', isCorrect: false }, { id: 'shu', label: 'Shu', isCorrect: false }] },
+        { id: 'two-14', prompt: 'Select the correct reading:', promptArabic: 'يَا', choices: [{ id: 'yaa', label: 'Yaa (long)', isCorrect: true }, { id: 'ya', label: 'Ya (short)', isCorrect: false }, { id: 'yu', label: 'Yu', isCorrect: false }] },
+
+        // --- Waaw Sukun (uu) Group ---
+        { id: 'two-3', prompt: 'Select the correct reading:', promptArabic: 'نُو', choices: [{ id: 'noo', label: 'Noo (long)', isCorrect: true }, { id: 'nu', label: 'Nu (short)', isCorrect: false }, { id: 'ni', label: 'Ni', isCorrect: false }] },
+        { id: 'two-6', prompt: 'Select the correct reading:', promptArabic: 'سُو', choices: [{ id: 'suu', label: 'Suu (long)', isCorrect: true }, { id: 'su', label: 'Su (short)', isCorrect: false }, { id: 'sa', label: 'Sa', isCorrect: false }] },
+        { id: 'two-8', prompt: 'Select the correct reading:', promptArabic: 'فُو', choices: [{ id: 'foo', label: 'Foo (long)', isCorrect: true }, { id: 'fu', label: 'Fu (short)', isCorrect: false }, { id: 'fi', label: 'Fi', isCorrect: false }] },
+        { id: 'two-11', prompt: 'Select the correct reading:', promptArabic: 'دُو', choices: [{ id: 'duu', label: 'Duu (long)', isCorrect: true }, { id: 'du', label: 'Du (short)', isCorrect: false }, { id: 'da', label: 'Da', isCorrect: false }] },
+        { id: 'two-15', prompt: 'Select the correct reading:', promptArabic: 'خُو', choices: [{ id: 'khuu', label: 'Khuu (long)', isCorrect: true }, { id: 'khu', label: 'Khu (short)', isCorrect: false }, { id: 'khi', label: 'Khi', isCorrect: false }] }, // Fixed Arabic from Khu (short) to Khuu (long)
+
+        // --- Yaa Sukun (ii) Group ---
+        { id: 'two-2', prompt: 'Select the correct reading:', promptArabic: 'تِي', choices: [{ id: 'tee', label: 'Tee (long)', isCorrect: true }, { id: 'ti', label: 'Ti (short)', isCorrect: false }, { id: 'tu', label: 'Tu', isCorrect: false }] },
+        { id: 'two-5', prompt: 'Select the correct reading:', promptArabic: 'رِي', choices: [{ id: 'ree', label: 'Ree (long)', isCorrect: true }, { id: 'ri', label: 'Ri (short)', isCorrect: false }, { id: 'ru', label: 'Ru', isCorrect: false }] },
+        { id: 'two-7', prompt: 'Select the correct reading:', promptArabic: 'هِي', choices: [{ id: 'hee', label: 'Hee (long)', isCorrect: true }, { id: 'hi', label: 'Hi (short)', isCorrect: false }, { id: 'hu', label: 'Hu', isCorrect: false }] },
+        { id: 'two-10', prompt: 'Select the correct reading:', promptArabic: 'جِي', choices: [{ id: 'jii', label: 'Jii (long)', isCorrect: true }, { id: 'ji', label: 'Ji (short)', isCorrect: false }, { id: 'ju', label: 'Ju', isCorrect: false }] },
+        { id: 'two-12', prompt: 'Select the correct reading:', promptArabic: 'زِي', choices: [{ id: 'zii', label: 'Zii (long)', isCorrect: true }, { id: 'zi', label: 'Zi (short)', isCorrect: false }, { id: 'za', label: 'Za', isCorrect: false }] },
       ],
     },
     // Stage 2: Two-letter with sukun
@@ -521,33 +530,7 @@ function buildCombinationLessons(): Lesson[] {
         { id: 'four-15', prompt: 'Select the correct reading:', promptArabic: 'سُكَّر', choices: [{ id: 'sukkar', label: 'Sukkar', isCorrect: true }, { id: 'sakr', label: 'Sakr', isCorrect: false }, { id: 'sukr', label: 'Sukr', isCorrect: false }] },
       ],
     },
-    // Stage 6: Tanwin words
-    {
-      id: 'combo-tanwin-words',
-      title: 'Words with Tanwin',
-      category: 'combination',
-      description: 'Practice reading words ending with tanwin (nunation).',
-      objectives: ['Read tanwin fath, kasr, and damm.', 'Recognize indefinite endings.'],
-      practiceWords: ['كِتَابًا', 'رَجُلٌ', 'بَيْتٍ', 'عِلْمًا', 'نُورًا'],
-      exercises: [
-        { id: 'tanwin-1', prompt: 'Select the correct reading:', promptArabic: 'كِتَابًا', choices: [{ id: 'kitaaban', label: 'Kitaaban', isCorrect: true }, { id: 'kitaabin', label: 'Kitaabin', isCorrect: false }, { id: 'kitaabun', label: 'Kitaabun', isCorrect: false }] },
-        { id: 'tanwin-2', prompt: 'Select the correct reading:', promptArabic: 'رَجُلٌ', choices: [{ id: 'rajulun', label: 'Rajulun', isCorrect: true }, { id: 'rajulin', label: 'Rajulin', isCorrect: false }, { id: 'rajulan', label: 'Rajulan', isCorrect: false }] },
-        { id: 'tanwin-3', prompt: 'Select the correct reading:', promptArabic: 'بَيْتٍ', choices: [{ id: 'baytin', label: 'Baytin', isCorrect: true }, { id: 'baytun', label: 'Baytun', isCorrect: false }, { id: 'baytan', label: 'Baytan', isCorrect: false }] },
-        { id: 'tanwin-4', prompt: 'Select the correct reading:', promptArabic: 'عِلْمًا', choices: [{ id: 'ilman', label: 'Ilman', isCorrect: true }, { id: 'ilmun', label: 'Ilmun', isCorrect: false }, { id: 'ilmin', label: 'Ilmin', isCorrect: false }] },
-        { id: 'tanwin-5', prompt: 'Select the correct reading:', promptArabic: 'قَلَمٌ', choices: [{ id: 'qalamun', label: 'Qalamun', isCorrect: true }, { id: 'qalaman', label: 'Qalaman', isCorrect: false }, { id: 'qalamin', label: 'Qalamin', isCorrect: false }] },
-        { id: 'tanwin-6', prompt: 'Select the correct reading:', promptArabic: 'وَلَدًا', choices: [{ id: 'waladan', label: 'Waladan', isCorrect: true }, { id: 'waladun', label: 'Waladun', isCorrect: false }, { id: 'waladin', label: 'Waladin', isCorrect: false }] },
-        { id: 'tanwin-7', prompt: 'Select the correct reading:', promptArabic: 'شَمْسٍ', choices: [{ id: 'shamsin', label: 'Shamsin', isCorrect: true }, { id: 'shamsun', label: 'Shamsun', isCorrect: false }, { id: 'shamsan', label: 'Shamsan', isCorrect: false }] },
-        { id: 'tanwin-8', prompt: 'Select the correct reading:', promptArabic: 'قَمَرٌ', choices: [{ id: 'qamarun', label: 'Qamarun', isCorrect: true }, { id: 'qamaran', label: 'Qamaran', isCorrect: false }, { id: 'qamarin', label: 'Qamarin', isCorrect: false }] },
-        { id: 'tanwin-9', prompt: 'Select the correct reading:', promptArabic: 'نُورًا', choices: [{ id: 'nuran', label: 'Nuran', isCorrect: true }, { id: 'nurun', label: 'Nurun', isCorrect: false }, { id: 'nurin', label: 'Nurin', isCorrect: false }] },
-        { id: 'tanwin-10', prompt: 'Select the correct reading:', promptArabic: 'لَيْلًا', choices: [{ id: 'laylan', label: 'Laylan', isCorrect: true }, { id: 'laylun', label: 'Laylun', isCorrect: false }, { id: 'laylin', label: 'Laylin', isCorrect: false }] },
-        { id: 'tanwin-11', prompt: 'Select the correct reading:', promptArabic: 'يَوْمٌ', choices: [{ id: 'yawmun', label: 'Yawmun', isCorrect: true }, { id: 'yawman', label: 'Yawman', isCorrect: false }, { id: 'yawmin', label: 'Yawmin', isCorrect: false }] },
-        { id: 'tanwin-12', prompt: 'Select the correct reading:', promptArabic: 'أَحَدٌ', choices: [{ id: 'ahadun', label: 'Ahadun', isCorrect: true }, { id: 'ahadan', label: 'Ahadan', isCorrect: false }, { id: 'ahadin', label: 'Ahadin', isCorrect: false }] },
-        { id: 'tanwin-13', prompt: 'Select the correct reading:', promptArabic: 'شَيْءٍ', choices: [{ id: 'shayin', label: 'Shayin', isCorrect: true }, { id: 'shayun', label: 'Shayun', isCorrect: false }, { id: 'shayan', label: 'Shayan', isCorrect: false }] },
-        { id: 'tanwin-14', prompt: 'Select the correct reading:', promptArabic: 'أَمْرًا', choices: [{ id: 'amran', label: 'Amran', isCorrect: true }, { id: 'amrun', label: 'Amrun', isCorrect: false }, { id: 'amrin', label: 'Amrin', isCorrect: false }] },
-        { id: 'tanwin-15', prompt: 'Select the correct reading:', promptArabic: 'قَوْلًا', choices: [{ id: 'qawlan', label: 'Qawlan', isCorrect: true }, { id: 'qawlun', label: 'Qawlun', isCorrect: false }, { id: 'qawlin', label: 'Qawlin', isCorrect: false }] },
-      ],
-    },
-    // Stage 7: Five+ letter words
+    // Stage 8: Five+ letter words
     {
       id: 'combo-five-letter',
       title: 'Longer Words',
@@ -573,7 +556,7 @@ function buildCombinationLessons(): Lesson[] {
         { id: 'five-15', prompt: 'Select the correct reading:', promptArabic: 'الْمَسَد', choices: [{ id: 'masad', label: 'Al-Masad', isCorrect: true }, { id: 'asad', label: 'Asad', isCorrect: false }, { id: 'hasad', label: 'Hasad', isCorrect: false }] },
       ],
     },
-    // Stage 8: Mixed review
+    // Stage 9: Mixed review
     {
       id: 'combo-mixed-review',
       title: 'Comprehensive Review',
@@ -605,6 +588,1985 @@ function buildCombinationLessons(): Lesson[] {
 // --- Tajweed Rules
 function buildTajweedLessons(): Lesson[] {
   return [
+    // ============================================
+    // STAGE 6: TAJWEED RULES - Individual Lessons
+    // ============================================
+
+    // Stage 6.1: Madda Asli (Natural Madd)
+    {
+      id: 'tajweed-madda-asli',
+      title: 'Madda Asli (Natural Elongation)',
+      category: 'tajweed',
+      description: 'Madda Asli is the natural elongation that occurs when a long vowel letter (Alif ا, Waaw و, or Yaa ي) follows its corresponding short vowel.',
+      objectives: [
+        'Recognize the 3 conditions for Madda Asli.',
+        'Apply 2-count elongation correctly.',
+        'Distinguish Madda Asli from other Madd types.'
+      ],
+      practiceWords: ['قَالَ', 'يَقُولُ', 'قِيلَ', 'خَلَقَ', 'زُيِّنَت', 'كَافِرِين', 'سُبُحَان'],
+      exercises: [
+        // Concept: What is Madda Asli?
+        {
+          id: 'madd-asli-concept',
+          prompt: 'What is Madda Asli (Natural Madd)?',
+          promptArabic: 'قَالَ',
+          promptNote: 'Look at the Alif (ا) with Fatha (َ) before it.',
+          choices: [
+            { id: '2-counts', label: 'Natural elongation held for 2 counts', isCorrect: true },
+            { id: '4-5-counts', label: 'Medium elongation for 4-5 counts', isCorrect: false },
+            { id: '6-counts', label: 'Long elongation for 6 counts', isCorrect: false }
+          ]
+        },
+        // Concept: The 3 conditions
+        {
+          id: 'madd-asli-conditions',
+          prompt: 'Which of these creates Madda Asli?',
+          promptArabic: '—',
+          promptNote: 'Select the pattern that produces natural elongation.',
+          choices: [
+            { id: 'all-three', label: 'All: Fatha+ا, Damma+و, Kasra+ي', isCorrect: true },
+            { id: 'only-alif', label: 'Only Fatha + Alif (َا)', isCorrect: false },
+            { id: 'only-hamza', label: 'Only Madda (آ)', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'madd-asli-read-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'قَالَ',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'qaala', label: 'Qaala (long aa)', isCorrect: true },
+            { id: 'qal', label: 'Qal (short)', isCorrect: false },
+            { id: 'qaal', label: 'Qaal', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَقُولُ',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'yaqoolu', label: 'Yaqoolu (long uu)', isCorrect: true },
+            { id: 'yaqul', label: 'Yaqul (short)', isCorrect: false },
+            { id: 'yaqul', label: 'Yaqwl', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'قِيلَ',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'qeela', label: 'Qeela (long ii)', isCorrect: true },
+            { id: 'qil', label: 'Qil (short)', isCorrect: false },
+            { id: 'qil', label: 'Qeel', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'خَلَقَ',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'khalaqa', label: 'Khalaqa (long aa)', isCorrect: true },
+            { id: 'khalqa', label: 'Khalqa', isCorrect: false },
+            { id: 'khalaq', label: 'Khalaq', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'زُيِّنَت',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'zuyyina', label: 'Zuyyina (long uu)', isCorrect: true },
+            { id: 'zayyina', label: 'Zayyina', isCorrect: false },
+            { id: 'zina', label: 'Zina', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'نِعْمَة',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'ni-mah', label: 'Ni\'mah (long ii)', isCorrect: true },
+            { id: 'namah', label: 'Namah', isCorrect: false },
+            { id: 'nam', label: 'Nam', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'كَافِرِين',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'kafireen', label: 'Kafireen', isCorrect: true },
+            { id: 'kafirin', label: 'Kafirin', isCorrect: false },
+            { id: 'kafaran', label: 'Kafaran', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'سُبُحَان',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'subhana', label: 'Subhana (long uu)', isCorrect: true },
+            { id: 'sabhan', label: 'Sabhan', isCorrect: false },
+            { id: 'subhaan', label: 'Subhaan', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْكَافِرُونَ',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'alkafiroon', label: 'Al-Kafiroon', isCorrect: true },
+            { id: 'alkafrun', label: 'Al-Kafrun', isCorrect: false },
+            { id: 'alkafoor', label: 'Al-Kafoor', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'رَحِيم',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'raheem', label: 'Raheem', isCorrect: true },
+            { id: 'rahim', label: 'Rahim', isCorrect: false },
+            { id: 'rahiim', label: 'Rahiim', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-11',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'كَرِيم',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'kareem', label: 'Kareem', isCorrect: true },
+            { id: 'karim', label: 'Karim', isCorrect: false },
+            { id: 'kariim', label: 'Kariim', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-read-12',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَظِيم',
+          promptNote: 'Hold the Madda for 2 counts.',
+          choices: [
+            { id: 'adheem', label: 'Adheem', isCorrect: true },
+            { id: 'adhim', label: 'Adhim', isCorrect: false },
+            { id: 'adhiim', label: 'Adhiim', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'madd-asli-id-1',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'قَالَ',
+          choices: [
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: true },
+            { id: 'muttasil', label: 'Madda Muttasil (4-5)', isCorrect: false },
+            { id: 'lazim', label: 'Madda Lazim (6)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-id-2',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'يَقُولُ',
+          choices: [
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: true },
+            { id: 'muttasil', label: 'Madda Muttasil (4-5)', isCorrect: false },
+            { id: 'lazim', label: 'Madda Lazim (6)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-asli-id-3',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'قِيلَ',
+          choices: [
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: true },
+            { id: 'muttasil', label: 'Madda Muttasil (4-5)', isCorrect: false },
+            { id: 'munfasil', label: 'Madda Munfasil (4-5)', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.2: Madda Muttasil (Connected Madd)
+    {
+      id: 'tajweed-madda-muttasil',
+      title: 'Madda Muttasil (Connected Elongation)',
+      category: 'tajweed',
+      description: 'Madda Muttasil occurs when Hamza (ء) and Madd letter (ا, و, ي) appear in the same word. The elongation is held for 4-5 counts.',
+      objectives: [
+        'Recognize Hamza + Madd in same word.',
+        'Apply 4-5 count elongation correctly.',
+        'Distinguish from Madda Munfasil.'
+      ],
+      practiceWords: ['جَاء', 'جَاءت', 'سُوء', 'شَيء', 'تَوْءَم', 'نَشُور'],
+      exercises: [
+        // Concept
+        {
+          id: 'madd-muttasil-concept',
+          prompt: 'What is Madda Muttasil?',
+          promptArabic: 'جَاء',
+          promptNote: 'Hamza (ء) and Madd (ا) are in the SAME word.',
+          choices: [
+            { id: '4-5-counts', label: 'Connected Madd - 4-5 counts', isCorrect: true },
+            { id: '2-counts', label: 'Natural Madd - 2 counts', isCorrect: false },
+            { id: '6-counts', label: 'Obligatory Madd - 6 counts', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-concept-2',
+          prompt: 'What makes Madd Muttasil different from Munfasil?',
+          promptArabic: '—',
+          promptNote: 'Think about where the Hamza and Madd are located.',
+          choices: [
+            { id: 'same-word', label: 'Hamza and Madd in SAME word', isCorrect: true },
+            { id: 'diff-word', label: 'Hamza and Madd in DIFFERENT words', isCorrect: false },
+            { id: 'sukun', label: 'Madd followed by Sukun', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'madd-muttasil-read-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'جَاء',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'jaa', label: 'Jaa\' (very long aa)', isCorrect: true },
+            { id: 'ja', label: 'Ja (short)', isCorrect: false },
+            { id: 'jaa-a', label: 'Jaa\'a', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'جَاءت',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'jaat', label: 'Jaa\'t (very long aa)', isCorrect: true },
+            { id: 'jat', label: 'Jat (short)', isCorrect: false },
+            { id: 'ja-at', label: 'Ja\'at', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَسُوء',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'yasuu', label: 'Yasuu\' (very long uu)', isCorrect: true },
+            { id: 'yasu', label: 'Yasu (short)', isCorrect: false },
+            { id: 'yaswu', label: 'Yaswu', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَشَاء',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'yashaa', label: 'Yashaa\' (very long aa)', isCorrect: true },
+            { id: 'yasha', label: 'Yasha (short)', isCorrect: false },
+            { id: 'yashaa-a', label: 'Yashaa\'a', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'تَوْءَم',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'taw-am', label: 'Taw\'am (very long uu)', isCorrect: true },
+            { id: 'ta-am', label: 'Ta\'am (short)', isCorrect: false },
+            { id: 'tu-am', label: 'Tu\'am', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَضِيء',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'yad-ii', label: 'Yadii\' (very long ii)', isCorrect: true },
+            { id: 'yadi', label: 'Yadi (short)', isCorrect: false },
+            { id: 'yad-ia', label: 'Yadi\'a', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'نَشُور',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'nashuu', label: 'Nashuu\' (very long uu)', isCorrect: true },
+            { id: 'nashu', label: 'Nashu (short)', isCorrect: false },
+            { id: 'nash-wu', label: 'Nash-wu\'', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'سُوء',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'suu', label: 'Suu\' (very long uu)', isCorrect: true },
+            { id: 'su', label: 'Su (short)', isCorrect: false },
+            { id: 'suu-a', label: 'Suu\'a', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'شَيء',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'shay', label: 'Shay\' (very long ii)', isCorrect: true },
+            { id: 'shai', label: 'Shai (short)', isCorrect: false },
+            { id: 'shay-i', label: 'Shay\'i', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-read-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَسُوءُهُم',
+          promptNote: 'Hold for 4-5 counts (Madda Muttasil).',
+          choices: [
+            { id: 'yasuu-hum', label: 'Yasuu\'uhum (very long uu)', isCorrect: true },
+            { id: 'yasu-hum', label: 'Yasu-hum (short)', isCorrect: false },
+            { id: 'yaswu-hum', label: 'Yaswu-hum', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'madd-muttasil-id-1',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'جَاء',
+          choices: [
+            { id: 'muttasil', label: 'Madda Muttasil (4-5 counts)', isCorrect: true },
+            { id: 'munfasil', label: 'Madda Munfasil (4-5 counts)', isCorrect: false },
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-id-2',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'سُوء',
+          choices: [
+            { id: 'muttasil', label: 'Madda Muttasil (4-5 counts)', isCorrect: true },
+            { id: 'lazim', label: 'Madda Lazim (6 counts)', isCorrect: false },
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-muttasil-id-3',
+          prompt: 'Why is this Madda Muttasil?',
+          promptArabic: 'شَيء',
+          choices: [
+            { id: 'same-word', label: 'Hamza and Madd in same word', isCorrect: true },
+            { id: 'diff-word', label: 'Hamza and Madd in different words', isCorrect: false },
+            { id: 'sukun-follows', label: 'Madd followed by Sukun', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.3: Madda Munfasil (Separated Madd)
+    {
+      id: 'tajweed-madda-munfasil',
+      title: 'Madda Munfasil (Separated Elongation)',
+      category: 'tajweed',
+      description: 'Madda Munfasil occurs when a Madd letter (ا, و, ي) appears at the end of a word and Hamza (ء) appears at the beginning of the next word. The elongation is held for 4-5 counts.',
+      objectives: [
+        'Recognize Madd at word end + Hamza at next word start.',
+        'Apply 4-5 count elongation correctly.',
+        'Distinguish from Madda Muttasil.'
+      ],
+      practiceWords: ['إِنَّا أَعْطَيْنَاك', 'إِنَّا نَحْنُ', 'هَـٰذَا أَخِي', 'قَالُوا أَأَنت'],
+      exercises: [
+        // Concept
+        {
+          id: 'madd-munfasil-concept',
+          prompt: 'What is Madda Munfasil?',
+          promptArabic: 'إِنَّا أَعْطَيْنَاك',
+          promptNote: 'Madd (ا) at end of word, Hamza (أ) at start of next.',
+          choices: [
+            { id: '4-5-counts', label: 'Separated Madd - 4-5 counts', isCorrect: true },
+            { id: '2-counts', label: 'Natural Madd - 2 counts', isCorrect: false },
+            { id: '6-counts', label: 'Obligatory Madd - 6 counts', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-concept-2',
+          prompt: 'What makes Madd Munfasil different from Muttasil?',
+          promptArabic: '—',
+          promptNote: 'Think about word boundaries.',
+          choices: [
+            { id: 'diff-word', label: 'Madd and Hamza in DIFFERENT words', isCorrect: true },
+            { id: 'same-word', label: 'Madd and Hamza in SAME word', isCorrect: false },
+            { id: 'sukun', label: 'Madd followed by Sukun', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'madd-munfasil-read-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّا أَعْطَيْنَاك',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'inna-ataynaka', label: 'Innaa ataynaka (long aa)', isCorrect: true },
+            { id: 'in-ataynaka', label: 'In ataynaka (short)', isCorrect: false },
+            { id: 'inna-ataynaka', label: 'Inna ataynaka', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّا نَحْنُ',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'inna-nahnu', label: 'Innaa nahnu (long aa)', isCorrect: true },
+            { id: 'in-nahnu', label: 'In nahnu (short)', isCorrect: false },
+            { id: 'ina-nahnu', label: 'Ina nahnu', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هَـٰذَا أَخِي',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'hadha-akhi', label: 'Hadhaa akhi (long aa)', isCorrect: true },
+            { id: 'hadha-akhi', label: 'Hadha akhi (short)', isCorrect: false },
+            { id: 'hadha-akhi', label: 'Haza akhi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'قَالُوا أَأَنت',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'qaloo-a-anta', label: 'Qaloo a-anta (long uu)', isCorrect: true },
+            { id: 'qalu-a-anta', label: 'Qalu a-anta (short)', isCorrect: false },
+            { id: 'qalu-anta', label: 'Qalu anta', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَا أَيُّهَا',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'yaa-ayyuha', label: 'Yaaa ayyuha (long aa)', isCorrect: true },
+            { id: 'ya-ayyuha', label: 'Ya ayyuha (short)', isCorrect: false },
+            { id: 'yaa-ayyoha', label: 'Yaaa ayyoha', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هَـٰؤُلَاء إِخْوَة',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'haa-ulaa-ikhwa', label: 'Haaa ulaaa ikhwa (long aa)', isCorrect: true },
+            { id: 'ha-ula-ikhwa', label: 'Ha ula ikhwa (short)', isCorrect: false },
+            { id: 'haulaa-ikhwa', label: 'Haulaaa ikhwa', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْحَمْدُ لِلَّه',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'alhamdu-lillah', label: 'Al-Hamdu lillaah (long aa)', isCorrect: true },
+            { id: 'alhamdu-lillah', label: 'Al-Hamdu lillah (short)', isCorrect: false },
+            { id: 'ahhamdu-lillah', label: 'Ahhhamdu lillaah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'نَحْنُ نَزَّلْنَا',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'nahnu-nazzalnaa', label: 'Nahnu nazzalnaa (long aa)', isCorrect: true },
+            { id: 'nahnu-nazzalna', label: 'Nahnu nazzalna (short)', isCorrect: false },
+            { id: 'nahnu-nazzal-na', label: 'Nahnu nazzal-na', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'قَالُوا أَسْمِع',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'qaloo-a-isma', label: 'Qaloo a-isma\' (long uu)', isCorrect: true },
+            { id: 'qalu-a-isma', label: 'Qalu a-isma\' (short)', isCorrect: false },
+            { id: 'qalu-asma', label: 'Qalu asma\'', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-read-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّا أَنزَلْنَا',
+          promptNote: 'Hold the Madd for 4-5 counts.',
+          choices: [
+            { id: 'innaa-anzalnaa', label: 'Inaaa anzalnaa (very long aa)', isCorrect: true },
+            { id: 'ina-anzalna', label: 'Ina anzalna (short)', isCorrect: false },
+            { id: 'inna-anzalnaa', label: 'Inna anzalnaa', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'madd-munfasil-id-1',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'إِنَّا أَعْطَيْنَاك',
+          choices: [
+            { id: 'munfasil', label: 'Madda Munfasil (4-5 counts)', isCorrect: true },
+            { id: 'muttasil', label: 'Madda Muttasil (4-5 counts)', isCorrect: false },
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-id-2',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'هَـٰذَا أَخِي',
+          choices: [
+            { id: 'munfasil', label: 'Madda Munfasil (4-5 counts)', isCorrect: true },
+            { id: 'lazim', label: 'Madda Lazim (6 counts)', isCorrect: false },
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-munfasil-id-3',
+          prompt: 'Why is this Madda Munfasil?',
+          promptArabic: 'يَا أَيُّهَا الَّذِينَ آمَنُوا',
+          choices: [
+            { id: 'diff-word', label: 'Madd and Hamza in different words', isCorrect: true },
+            { id: 'same-word', label: 'Madd and Hamza in same word', isCorrect: false },
+            { id: 'sukun-follows', label: 'Madd followed by Sukun', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.4: Madda Lazim (Obligatory Madd)
+    {
+      id: 'tajweed-madda-lazim',
+      title: 'Madda Lazim (Obligatory Elongation)',
+      category: 'tajweed',
+      description: 'Madda Lazim occurs when a Madd letter (ا, و, ي) is followed by Sukun (ْ) or Shadda (ّ) within the same word. This is the longest elongation, held for 6 counts.',
+      objectives: [
+        'Recognize Madd followed by Sukun or Shadda.',
+        'Apply 6-count elongation correctly.',
+        'Distinguish from other Madd types.'
+      ],
+      practiceWords: ['الضُّحَىٰ', 'الْآخِرَة', 'لَدَيْهِ', 'الْحَيَاة', 'الصَّآلِحِين'],
+      exercises: [
+        // Concept
+        {
+          id: 'madd-lazim-concept',
+          prompt: 'What is Madda Lazim?',
+          promptArabic: 'الضُّحَىٰ',
+          promptNote: 'Alif Madd (ا) followed by Sukun (ىٰ).',
+          choices: [
+            { id: '6-counts', label: 'Obligatory Madd - 6 counts (longest)', isCorrect: true },
+            { id: '2-counts', label: 'Natural Madd - 2 counts', isCorrect: false },
+            { id: '4-5-counts', label: 'Connected/Separated Madd - 4-5 counts', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-concept-2',
+          prompt: 'What causes Madda Lazim?',
+          promptArabic: '—',
+          promptNote: 'Select the condition that creates Madda Lazim.',
+          choices: [
+            { id: 'sukun-or-shadda', label: 'Madd followed by Sukun or Shadda', isCorrect: true },
+            { id: 'hamza-same-word', label: 'Hamza and Madd in same word', isCorrect: false },
+            { id: 'hamza-diff-word', label: 'Hamza and Madd in different words', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'madd-lazim-read-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الضُّحَىٰ',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'adduhaa', label: 'Ad-Duhaaa (very long aa)', isCorrect: true },
+            { id: 'adduha', label: 'Ad-duhaa', isCorrect: false },
+            { id: 'adduh', label: 'Ad-duh', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْآخِرَة',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'al-aakhirah', label: 'Al-aaaakhirah (very long aa)', isCorrect: true },
+            { id: 'al-aakirah', label: 'Al-aakhirah', isCorrect: false },
+            { id: 'al-akhirah', label: 'Al-akhirah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'لَدَيْهِ',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'ladayhi', label: 'Ladayyyhi (very long ii)', isCorrect: true },
+            { id: 'ladayhi', label: 'Ladayhi', isCorrect: false },
+            { id: 'laday-hi', label: 'Laday-hi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْحَيَاة',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'alhayaa', label: 'Al-hayaaa (very long aa)', isCorrect: true },
+            { id: 'alhayat', label: 'Al-hayat', isCorrect: false },
+            { id: 'alhayyah', label: 'Al-hayyah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الصَّآلِحِين',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'assaalihiin', label: 'As-saaalihiin (very long aa)', isCorrect: true },
+            { id: 'assaliin', label: 'As-saliin', isCorrect: false },
+            { id: 'assalihin', label: 'As-salihin', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الطُّور',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'at-toor', label: 'At-toooor (very long uu)', isCorrect: true },
+            { id: 'at-tur', label: 'At-tur', isCorrect: false },
+            { id: 'at-tawr', label: 'At-tawr', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'بُورِك',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'buuriika', label: 'Buuuurik (very long uu)', isCorrect: true },
+            { id: 'burika', label: 'Burika', isCorrect: false },
+            { id: 'barika', label: 'Barika', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يُخَرِّج',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'yukhriij', label: 'Yukhriij (very long ii)', isCorrect: true },
+            { id: 'yukhrij', label: 'Yukhrij', isCorrect: false },
+            { id: 'yukhrijj', label: 'Yukhrijj', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'تَبَارَك',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'tabaaaraka', label: 'Tabaaaraka (very long aa)', isCorrect: true },
+            { id: 'tabarak', label: 'Tabarak', isCorrect: false },
+            { id: 'tabarakka', label: 'Tabarakka', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْمَأْوَى',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'al-maaa-wa', label: 'Al-maaawaa (very long aa)', isCorrect: true },
+            { id: 'al-maw-a', label: 'Al-maw\'a', isCorrect: false },
+            { id: 'al-ma-wa', label: 'Al-ma\'wa', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-11',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'جَهَنَّم',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'jahannamaa', label: 'Jahannamaaa (very long aa)', isCorrect: true },
+            { id: 'jahannam', label: 'Jahannam', isCorrect: false },
+            { id: 'jahannama', label: 'Jahannama', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-read-12',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'حَاقَّة',
+          promptNote: 'Hold the Madd for 6 counts.',
+          choices: [
+            { id: 'haaqqah', label: 'Haaaqqah (very long aa)', isCorrect: true },
+            { id: 'haqqah', label: 'Haqqah', isCorrect: false },
+            { id: 'haa-qah', label: 'Haaa-qah', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'madd-lazim-id-1',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'الضُّحَىٰ',
+          choices: [
+            { id: 'lazim', label: 'Madda Lazim (6 counts)', isCorrect: true },
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: false },
+            { id: 'muttasil', label: 'Madda Muttasil (4-5 counts)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-id-2',
+          prompt: 'Identify the Madd type:',
+          promptArabic: 'لَدَيْهِ',
+          choices: [
+            { id: 'lazim', label: 'Madda Lazim (6 counts)', isCorrect: true },
+            { id: 'munfasil', label: 'Madda Munfasil (4-5 counts)', isCorrect: false },
+            { id: 'asli', label: 'Madda Asli (2 counts)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'madd-lazim-id-3',
+          prompt: 'Why is this Madda Lazim?',
+          promptArabic: 'الْحَيَاة',
+          choices: [
+            { id: 'sukon-or-shadda', label: 'Madd followed by Sukun or Shadda', isCorrect: true },
+            { id: 'hamza-same-word', label: 'Hamza and Madd in same word', isCorrect: false },
+            { id: 'natural', label: 'It is a natural vowel', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.5: Ghunnah - Nun and Meem Mushaddadatayn
+    {
+      id: 'tajweed-ghunnah-mushaddad',
+      title: 'Ghunnah: Nun & Meem Mushaddadatayn',
+      category: 'tajweed',
+      description: 'Ghunnah is a nasal sound produced from the nose. When Nun (ن) or Meem (م) have Shadda (ّ) - called *Nun/Meem Mushaddadah* - they are pronounced with Ghunnah held for 2 counts.',
+      objectives: [
+        'Recognize Nun and Meem with Shadda.',
+        'Apply Ghunnah for exactly 2 counts.',
+        'Understand the difference between regular and Ghunnah pronunciation.'
+      ],
+      practiceWords: ['إِنَّ', 'إِنَّا', 'حَتَّىٰ', 'إِنَّهُ', 'كَذَّبَت', 'إِنَّمَا', 'أَمَّا', 'رَحْمَة', 'عَظِيم'],
+      exercises: [
+        // Concept: What is Ghunnah?
+        {
+          id: 'ghunnah-concept-1',
+          prompt: 'What is Ghunnah?',
+          promptArabic: 'إِنَّ',
+          promptNote: 'Nun with Shadda (نّ).',
+          choices: [
+            { id: 'nasal-2', label: 'Nasal sound (Ghunnah) for 2 counts', isCorrect: true },
+            { id: 'clear', label: 'Clear pronunciation without nasal', isCorrect: false },
+            { id: 'stop', label: 'Stop and pause', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ghunnah-concept-2',
+          prompt: 'Which letters have Ghunnah when Mushaddad?',
+          promptArabic: '—',
+          choices: [
+            { id: 'nun-meem', label: 'Only Nun (ن) and Meem (م)', isCorrect: true },
+            { id: 'all-letters', label: 'All letters with Shadda', isCorrect: false },
+            { id: 'only-nun', label: 'Only Nun (ن)', isCorrect: false }
+          ]
+        },
+        // Nun Mushaddadah Practice
+        {
+          id: 'nun-mushaddad-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّ',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'inna', label: 'Inna (with Ghunnah)', isCorrect: true },
+            { id: 'ina', label: 'Ina (no Ghunnah)', isCorrect: false },
+            { id: 'inn', label: 'Inn', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّا',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'innaa', label: 'Innaa (with Ghunnah)', isCorrect: true },
+            { id: 'inaa', label: 'Inaa (no Ghunnah)', isCorrect: false },
+            { id: 'innah', label: 'Innah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'حَتَّىٰ',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'hatta', label: 'Hatta (with Ghunnah)', isCorrect: true },
+            { id: 'hata', label: 'Hata (no Ghunnah)', isCorrect: false },
+            { id: 'hataa', label: 'Hataa', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّهُ',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'innahu', label: 'Innahu (with Ghunnah)', isCorrect: true },
+            { id: 'inahu', label: 'Inahu (no Ghunnah)', isCorrect: false },
+            { id: 'innah', label: 'Innah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'كَذَّبَت',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'kathabat', label: 'Kathabat (with Ghunnah)', isCorrect: true },
+            { id: 'kazabat', label: 'Kazabat (no Ghunnah)', isCorrect: false },
+            { id: 'kazab', label: 'Kazab', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَنِّع',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'yanna-u', label: 'Yanna\'u (with Ghunnah)', isCorrect: true },
+            { id: 'yana-u', label: 'Yana\'u (no Ghunnah)', isCorrect: false },
+            { id: 'yani-u', label: 'Yani\'u', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'فَإِنَّ',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'fainna', label: 'Fainna (with Ghunnah)', isCorrect: true },
+            { id: 'faina', label: 'Faina (no Ghunnah)', isCorrect: false },
+            { id: 'fain', label: 'Fain', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'لَنَسْفَعًا',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'lanas-fa-an', label: 'Lanasfa\'an (with Ghunnah)', isCorrect: true },
+            { id: 'lasafaan', label: 'Lasafaan (no Ghunnah)', isCorrect: false },
+            { id: 'lanasfan', label: 'Lanasfan', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّا أَعْطَيْنَاك',
+          promptNote: 'Apply Ghunnah on both Nun letters.',
+          choices: [
+            { id: 'innaa-ataynaka', label: 'Innaa ataynaka (double Ghunnah)', isCorrect: true },
+            { id: 'inaa-ataynaka', label: 'Inaaa ataynaka', isCorrect: false },
+            { id: 'inna-ataynaka', label: 'Inna ataynaka', isCorrect: false }
+          ]
+        },
+        {
+          id: 'nun-mushaddad-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّهُمْ هُمُ',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'innahum-humu', label: 'Innahum humu (with Ghunnah)', isCorrect: true },
+            { id: 'inahum-humu', label: 'Inahum humu', isCorrect: false },
+            { id: 'innah-humu', label: 'Innah humu', isCorrect: false }
+          ]
+        },
+        // Meem Mushaddadah Practice
+        {
+          id: 'meem-mushaddad-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'إِنَّمَا',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'innama', label: 'Innama (with Ghunnah)', isCorrect: true },
+            { id: 'inama', label: 'Inama (no Ghunnah)', isCorrect: false },
+            { id: 'innam', label: 'Innam', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَمَّا',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'amma', label: 'Amma (with Ghunnah)', isCorrect: true },
+            { id: 'ama', label: 'Ama (no Ghunnah)', isCorrect: false },
+            { id: 'am', label: 'Am', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'حَتَّمْنَا',
+          promptNote: 'Apply Ghunnah for 2 counts on Meem and Nun.',
+          choices: [
+            { id: 'hattamna', label: 'Hattamna (double Ghunnah)', isCorrect: true },
+            { id: 'hatamna', label: 'Hatamna', isCorrect: false },
+            { id: 'hatmana', label: 'Hatmana', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يُمَدُّون',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'yamaddoon', label: 'Yamaddoon (with Ghunnah)', isCorrect: true },
+            { id: 'yamadoon', label: 'Yamadoon (no Ghunnah)', isCorrect: false },
+            { id: 'yamudun', label: 'Yamudun', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'رَحْمَة',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'rahmah', label: 'Rahmah (with Ghunnah)', isCorrect: true },
+            { id: 'rahah', label: 'Rahah (no Ghunnah)', isCorrect: false },
+            { id: 'raha', label: 'Raha', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَظِيم',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'adheem', label: 'Adheem (with Ghunnah)', isCorrect: true },
+            { id: 'adhiam', label: 'Adhiam (no Ghunnah)', isCorrect: false },
+            { id: 'azim', label: 'Azim', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'كَرِيم',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'kareem', label: 'Kareem (with Ghunnah)', isCorrect: true },
+            { id: 'kariim', label: 'Kariim (no Ghunnah)', isCorrect: false },
+            { id: 'karim', label: 'Karim', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'رَحِيم',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'raheem', label: 'Raheem (with Ghunnah)', isCorrect: true },
+            { id: 'rahiim', label: 'Rahiim (no Ghunnah)', isCorrect: false },
+            { id: 'rahim', label: 'Rahim', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أُمَّة',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'ummah', label: 'Ummah (with Ghunnah)', isCorrect: true },
+            { id: 'umah', label: 'Umah (no Ghunnah)', isCorrect: false },
+            { id: 'um-mah', label: 'Um-mah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'meem-mushaddad-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يُمِنُون',
+          promptNote: 'Apply Ghunnah for 2 counts.',
+          choices: [
+            { id: 'yuminon', label: 'Yuminon (with Ghunnah)', isCorrect: true },
+            { id: 'yuminon', label: 'Yuminon (no Ghunnah)', isCorrect: false },
+            { id: 'yummun', label: 'Yummun', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'ghunnah-id-1',
+          prompt: 'Identify the rule:',
+          promptArabic: 'إِنَّ',
+          choices: [
+            { id: 'ghunnah-nun', label: 'Ghunnah - Nun Mushaddadah', isCorrect: true },
+            { id: 'ghunnah-meem', label: 'Ghunnah - Meem Mushaddadah', isCorrect: false },
+            { id: 'no-ghunnah', label: 'No Ghunnah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ghunnah-id-2',
+          prompt: 'Identify the rule:',
+          promptArabic: 'أَمَّا',
+          choices: [
+            { id: 'ghunnah-meem', label: 'Ghunnah - Meem Mushaddadah', isCorrect: true },
+            { id: 'ghunnah-nun', label: 'Ghunnah - Nun Mushaddadah', isCorrect: false },
+            { id: 'no-ghunnah', label: 'No Ghunnah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ghunnah-id-3',
+          prompt: 'How many Ghunnah sounds here?',
+          promptArabic: 'إِنَّمَا',
+          choices: [
+            { id: 'two', label: 'Two (Nun and Meem)', isCorrect: true },
+            { id: 'one', label: 'One', isCorrect: false },
+            { id: 'none', label: 'None', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.6: Meem Sakin - Ikhfa Shafawi
+    {
+      id: 'tajweed-meem-sakin-ikhfa',
+      title: 'Meem Sakin: Ikhfa Shafawi',
+      category: 'tajweed',
+      description: 'Ikhfa Shafawi occurs when a Meem with Sukun (مْ) is followed by the letter Ba (ب). The Meem is hidden and pronounced with Ghunnah (nasal sound) for 2 counts, but WITHOUT clearly saying the Meem.',
+      objectives: [
+        'Recognize Meem Sakin followed by Ba.',
+        'Apply Ikhfa Shafawi with Ghunnah.',
+        'Understand the difference from Izhar and Idgham.'
+      ],
+      practiceWords: ['أَعْوذُ بِ', 'هُمْ بِهِ', 'عَلَيْهِمُ بَيِّنَات', 'أَنْتُمْ بِه', 'يُرِيدُ بِهِم'],
+      exercises: [
+        // Concept
+        {
+          id: 'ikhfa-shafawi-concept',
+          prompt: 'What is Ikhfa Shafawi?',
+          promptArabic: 'أَعْوذُ بِ',
+          promptNote: 'Meem Sakin (مْ) followed by Ba (ب).',
+          choices: [
+            { id: 'ikhfa', label: 'Hide Meem, pronounce Ghunnah (2 counts)', isCorrect: true },
+            { id: 'izhar', label: 'Pronounce Meem clearly', isCorrect: false },
+            { id: 'idgham', label: 'Merge into next letter', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-concept-2',
+          prompt: `When does Ikhfa Shafawi occur?`,
+          promptArabic: '—',
+          promptNote: 'Select the correct condition.',
+          choices: [
+            { id: 'meem-ba', label: 'Meem Sakin followed by Ba', isCorrect: true },
+            { id: 'meem-meem', label: 'Meem Sakin followed by Meem', isCorrect: false },
+            { id: 'meem-other', label: 'Meem Sakin followed by other letters', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'ikhfa-shafawi-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَعُوذُ بِاللَّه',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'auzu-billah', label: 'A\'udhu billah (Ghunnah, no clear Meem)', isCorrect: true },
+            { id: 'auzu-m-billah', label: 'A\'udhu m-billah (clear Meem)', isCorrect: false },
+            { id: 'auzu-billah', label: 'A\'uzu billah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمْ بِهِ',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'hum-bihi', label: 'Hum bihi (Ghunnah)', isCorrect: true },
+            { id: 'hum-m-bihi', label: 'Hum m-bihi', isCorrect: false },
+            { id: 'hum-bi', label: 'Hum bi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يُرِيدُ بِهِم',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'yuridu-bihim', label: 'Yuridu bihim (Ghunnah)', isCorrect: true },
+            { id: 'yuridu-m-bihim', label: 'Yuridu m-bihim', isCorrect: false },
+            { id: 'yuridu-bihmi', label: 'Yuridu bihmi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَنْتُمْ بِه',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'antum-bihi', label: 'Antum bihi (Ghunnah)', isCorrect: true },
+            { id: 'antum-m-bihi', label: 'Antum m-bihi', isCorrect: false },
+            { id: 'antum-bi', label: 'Antum bi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمْ بَيْنَ',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'hum-bayna', label: 'Hum bayna (Ghunnah)', isCorrect: true },
+            { id: 'hum-m-bayna', label: 'Hum m-bayna', isCorrect: false },
+            { id: 'hum-bayn', label: 'Hum bayn', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَلَيْهِمُ بَيِّنَات',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'alayhimu-bayyinaat', label: 'Alayhimu bayyinaat (Ghunnah)', isCorrect: true },
+            { id: 'alayhimu-m-bayyinaat', label: 'Alayhimu m-bayyinaat', isCorrect: false },
+            { id: 'alayhi-bayyinaat', label: 'Alayhi bayyinaat', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَرْسَلْنَاكَ بِالْحَق',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'arsalnaka-bilhaqq', label: 'Arsalnaka bilhaqq (Ghunnah)', isCorrect: true },
+            { id: 'arsalnaka-m-bilhaqq', label: 'Arsalnaka m-bilhaqq', isCorrect: false },
+            { id: 'arsalnaka-bil', label: 'Arsalnaka bil', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَخْرُجْ بُهْرُمَان',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'yakhruj-buhruman', label: 'Yakhruj buhruman (Ghunnah)', isCorrect: true },
+            { id: 'yakhruj-m-buhruman', label: 'Yakhruj m-buhruman', isCorrect: false },
+            { id: 'yakhru-buhruman', label: 'Yakhru buhruman', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَبْعَثُهُم بَعْد',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'yab-athuhum-bad', label: 'Yab\'athuhum bad (Ghunnah)', isCorrect: true },
+            { id: 'yab-athuhum-m-bad', label: 'Yab\'athuhum m-bad', isCorrect: false },
+            { id: 'yabathu-bad', label: 'Yabathu bad', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'تَرْبُصُونَ بِنَا',
+          promptNote: 'Apply Ikhfa Shafawi.',
+          choices: [
+            { id: 'tarbusbuna-binaa', label: 'Tarbusbuna binaa (Ghunnah)', isCorrect: true },
+            { id: 'tarbusbuna-m-binaa', label: 'Tarbusbuna m-binaa', isCorrect: false },
+            { id: 'tarbus-binana', label: 'Tarbus binana', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'ikhfa-shafawi-id-1',
+          prompt: 'Identify the rule:',
+          promptArabic: 'هُمْ بِهِ',
+          choices: [
+            { id: 'ikhfa', label: 'Ikhfa Shafawi', isCorrect: true },
+            { id: 'idgham', label: 'Idgham Shafawi', isCorrect: false },
+            { id: 'izhar', label: 'Izhar Shafawi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-id-2',
+          prompt: 'Identify the rule:',
+          promptArabic: 'عَلَيْهِمُ بَيِّنَات',
+          choices: [
+            { id: 'ikhfa', label: 'Ikhfa Shafawi', isCorrect: true },
+            { id: 'idgham', label: 'Idgham Shafawi', isCorrect: false },
+            { id: 'izhar', label: 'Izhar Shafawi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'ikhfa-shafawi-id-3',
+          prompt: 'Why Ikhfa Shafawi here?',
+          promptArabic: 'أَعُوذُ بِاللَّه',
+          choices: [
+            { id: 'meem-sakin-ba', label: 'Meem Sakin followed by Ba', isCorrect: true },
+            { id: 'meem-sakin-meem', label: 'Meem Sakin followed by Meem', isCorrect: false },
+            { id: 'meem-sakin-other', label: 'Meem Sakin followed by other', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.7: Meem Sakin - Idgham Shafawi
+    {
+      id: 'tajweed-meem-sakin-idgham',
+      title: 'Meem Sakin: Idgham Shafawi',
+      category: 'tajweed',
+      description: 'Idgham Shafawi occurs when a Meem with Sukun (مْ) is followed by another Meem (م). The first Meem is merged into the second Meem, and pronounced with Ghunnah for 2 counts.',
+      objectives: [
+        'Recognize Meem Sakin followed by Meem.',
+        'Apply Idgham Shafawi (merge + Ghunnah).',
+        'Distinguish from Ikhfa and Izhar Shafawi.'
+      ],
+      practiceWords: ['هُمَ الْمُؤْمِنُونَ', 'مِنْ مَال', 'أَنْتُمْ مُسْلِمُونَ', 'لَكُمْ مَثَل', 'هُمْ مُصْلِحُونَ'],
+      exercises: [
+        // Concept
+        {
+          id: 'idgham-shafawi-concept',
+          prompt: 'What is Idgham Shafawi?',
+          promptArabic: 'هُمَ الْمُؤْمِنُونَ',
+          promptNote: 'Meem Sakin (مْ) followed by Meem (م).',
+          choices: [
+            { id: 'idgham', label: 'Merge Meems with Ghunnah (2 counts)', isCorrect: true },
+            { id: 'izhar', label: 'Pronounce both Meems separately', isCorrect: false },
+            { id: 'ikhfa', label: 'Hide the sound', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-concept-2',
+          prompt: 'When does Idgham Shafawi occur?',
+          promptArabic: '—',
+          promptNote: 'Select the correct condition.',
+          choices: [
+            { id: 'meem-meem', label: 'Meem Sakin followed by Meem', isCorrect: true },
+            { id: 'meem-ba', label: 'Meem Sakin followed by Ba', isCorrect: false },
+            { id: 'meem-other', label: 'Meem Sakin followed by other letters', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'idgham-shafawi-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمَ الْمُؤْمِنُونَ',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'humul-muminoon', label: 'Humul-muminoon (merged + Ghunnah)', isCorrect: true },
+            { id: 'hum-muminoon', label: 'Hum muminoon', isCorrect: false },
+            { id: 'humu-muminoon', label: 'Humu muminoon', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'مِنْ مَال',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'mim-mal', label: 'Mim-maal (merged + Ghunnah)', isCorrect: true },
+            { id: 'min-mal', label: 'Min-maal', isCorrect: false },
+            { id: 'mi-mal', label: 'Mi-maal', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَنْتُمْ مُسْلِمُونَ',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'antum-muslimoon', label: 'Antum muslimoon (merged + Ghunnah)', isCorrect: true },
+            { id: 'antum-muslimoon', label: 'Antum-muslimoon', isCorrect: false },
+            { id: 'antu-muslimoon', label: 'Antu muslimoon', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'لَكُمْ مَثَل',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'lakum-mathal', label: 'Lakum mathal (merged + Ghunnah)', isCorrect: true },
+            { id: 'lakum-mathal', label: 'Lakum-mathal', isCorrect: false },
+            { id: 'laku-mathal', label: 'Laku mathal', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمْ مُصْلِحُونَ',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'hum-muslihoon', label: 'Hum muslihoon (merged + Ghunnah)', isCorrect: true },
+            { id: 'hum-muslihoon', label: 'Hum-muslihoon', isCorrect: false },
+            { id: 'humu-muslihoon', label: 'Humu muslihoon', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'مِنْ مُوسِىٰ',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'mim-moosa', label: 'Mim-Moosaa (merged + Ghunnah)', isCorrect: true },
+            { id: 'min-moosa', label: 'Min-Moosaa', isCorrect: false },
+            { id: 'mi-moosa', label: 'Mi-Moosaa', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'مِنْ مَّا',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'mim-maa', label: 'Mim-maa (merged + Ghunnah)', isCorrect: true },
+            { id: 'min-maa', label: 'Min-maa', isCorrect: false },
+            { id: 'min-ma', label: 'Min-ma', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَلَيْكُمْ مَعْرُوف',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'alaykum-maroof', label: 'Alaykum maroof (merged + Ghunnah)', isCorrect: true },
+            { id: 'alaykum-maroof', label: 'Alaykum-maroof', isCorrect: false },
+            { id: 'alayku-maroof', label: 'Alayku maroof', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'مِنْ مُنْكَر',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'mim-munkar', label: 'Mim-munkar (merged + Ghunnah)', isCorrect: true },
+            { id: 'min-munkar', label: 'Min-munkar', isCorrect: false },
+            { id: 'min-munkar', label: 'Min-munkar', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمْ مُخْلِصُونَ',
+          promptNote: 'Apply Idgham Shafawi.',
+          choices: [
+            { id: 'hum-mukhlisoon', label: 'Hum mukhlisoon (merged + Ghunnah)', isCorrect: true },
+            { id: 'hum-mukhlisoon', label: 'Hum-mukhlisoon', isCorrect: false },
+            { id: 'humu-mukhlisoon', label: 'Humu mukhlisoon', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'idgham-shafawi-id-1',
+          prompt: 'Identify the rule:',
+          promptArabic: 'هُمَ الْمُؤْمِنُونَ',
+          choices: [
+            { id: 'idgham', label: 'Idgham Shafawi', isCorrect: true },
+            { id: 'ikhfa', label: 'Ikhfa Shafawi', isCorrect: false },
+            { id: 'izhar', label: 'Izhar Shafawi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-id-2',
+          prompt: 'Identify the rule:',
+          promptArabic: 'مِنْ مَال',
+          choices: [
+            { id: 'idgham', label: 'Idgham Shafawi', isCorrect: true },
+            { id: 'izhar', label: 'Izhar Shafawi', isCorrect: false },
+            { id: 'ikhfa', label: 'Ikhfa Shafawi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'idgham-shafawi-id-3',
+          prompt: 'Why Idgham Shafawi here?',
+          promptArabic: 'أَنْتُمْ مُسْلِمُونَ',
+          choices: [
+            { id: 'meem-sakin-meem', label: 'Meem Sakin followed by Meem', isCorrect: true },
+            { id: 'meem-sakin-ba', label: 'Meem Sakin followed by Ba', isCorrect: false },
+            { id: 'meem-sakin-other', label: 'Meem Sakin followed by other', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.8: Meem Sakin - Izhar Shafawi
+    {
+      id: 'tajweed-meem-sakin-izhar',
+      title: 'Meem Sakin: Izhar Shafawi',
+      category: 'tajweed',
+      description: 'Izhar Shafawi occurs when a Meem with Sukun (مْ) is followed by any letter other than Ba (ب) or Meem (م). The Meem is pronounced clearly without Ghunnah.',
+      objectives: [
+        'Recognize Meem Sakin followed by other letters.',
+        'Apply Izhar Shafawi (clear pronunciation).',
+        'Distinguish from Ikhfa and Idgham Shafawi.'
+      ],
+      practiceWords: ['أَمْ عَلِم', 'أَمْ لَمْ', 'عَلَيْهِمْ ذِكْرٌ', 'أَنْعَمْتَ', 'هُمْ فِي', 'يَمْحَقُ'],
+      exercises: [
+        // Concept
+        {
+          id: 'izhar-shafawi-concept',
+          prompt: 'What is Izhar Shafawi?',
+          promptArabic: 'أَمْ عَلِم',
+          promptNote: 'Meem Sakin (مْ) followed by Ain (not Ba or Meem).',
+          choices: [
+            { id: 'izhar', label: 'Clear pronunciation, no Ghunnah', isCorrect: true },
+            { id: 'ikhfa', label: 'Hidden with Ghunnah', isCorrect: false },
+            { id: 'idgham', label: 'Merged with Ghunnah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-concept-2',
+          prompt: 'When does Izhar Shafawi occur?',
+          promptArabic: '—',
+          promptNote: 'Select the correct condition.',
+          choices: [
+            { id: 'meem-other', label: 'Meem Sakin + letters other than Ba/Meem', isCorrect: true },
+            { id: 'meem-ba', label: 'Meem Sakin followed by Ba', isCorrect: false },
+            { id: 'meem-meem', label: 'Meem Sakin followed by Meem', isCorrect: false }
+          ]
+        },
+        // Reading exercises
+        {
+          id: 'izhar-shafawi-1',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَمْ عَلِم',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'am-alima', label: 'Am alima (clear Meem, no Ghunnah)', isCorrect: true },
+            { id: 'ammalima', label: 'Ammalima (merged)', isCorrect: false },
+            { id: 'am-alima', label: 'Am alima (with Ghunnah)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-2',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَمْ لَمْ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'am-lam', label: 'Am lam (clear Meem, no Ghunnah)', isCorrect: true },
+            { id: 'ammalamm', label: 'Ammalamm (merged)', isCorrect: false },
+            { id: 'amlam', label: 'Amlam', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-3',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَلَيْهِمْ ذِكْرٌ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'alayhim-zikr', label: 'Alayhim zikr (clear Meem)', isCorrect: true },
+            { id: 'alayhi-zikr', label: 'Alayhi zikr', isCorrect: false },
+            { id: 'alayhim-zikr', label: 'Alayhim zikr (Ghunnah)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-4',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'أَنْعَمْتَ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'an-amta', label: 'An-amta (clear Meem)', isCorrect: true },
+            { id: 'an-amta', label: 'An\'amta (merged)', isCorrect: false },
+            { id: 'annamta', label: 'Annamta', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمْ فِي',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'hum-fi', label: 'Hum fi (clear Meem)', isCorrect: true },
+            { id: 'humufi', label: 'Humufi (merged)', isCorrect: false },
+            { id: 'hum-fi', label: 'Hum fi (Ghunnah)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-6',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَمْحَقُ اللَّه',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'yamhaqu-allah', label: 'Yamhaqu Allah (clear Meem)', isCorrect: true },
+            { id: 'yahaqu-allah', label: 'Yahaqu Allah', isCorrect: false },
+            { id: 'yamhaqullah', label: 'Yamhaqullah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-7',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَنْهُمْ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'anhumu', label: 'Anhumu (clear Meem)', isCorrect: true },
+            { id: 'annahumu', label: 'Annhumu', isCorrect: false },
+            { id: 'an-hum', label: 'An-hum', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-8',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'هُمْ ثَلاثَة',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'hum-thalathah', label: 'Hum thalathah (clear Meem)', isCorrect: true },
+            { id: 'humthalathah', label: 'Humthalathah', isCorrect: false },
+            { id: 'hum-thalath', label: 'Hum thalath', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-9',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'يَمْحَقُ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'yamhaqu', label: 'Yamhaqu (clear Meem)', isCorrect: true },
+            { id: 'yahaqu', label: 'Yahaqu', isCorrect: false },
+            { id: 'yamha-qu', label: 'Yamha-qu', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-10',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَلَيْهِمْ قِطْنٌ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'alayhim-qitn', label: 'Alayhim qitn (clear Meem)', isCorrect: true },
+            { id: 'alayhi-qitn', label: 'Alayhi qitn', isCorrect: false },
+            { id: 'alayhim-qit', label: 'Alayhim qit', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-11',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'عَنْهُمْ جَنَّات',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'anhumu-jannaat', label: 'Anhumu jannaat (clear Meem)', isCorrect: true },
+            { id: 'annahumu-jannaat', label: 'Annhumu jannaat', isCorrect: false },
+            { id: 'anhu-jannaat', label: 'Anhu jannaat', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-12',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'لَدَيْهِمْ عِلْمٌ',
+          promptNote: 'Apply Izhar Shafawi.',
+          choices: [
+            { id: 'ladayhim-ilm', label: 'Ladayhim ilm (clear Meem)', isCorrect: true },
+            { id: 'ladayhi-ilm', label: 'Ladayhi ilm', isCorrect: false },
+            { id: 'ladayhim-ilm', label: 'Ladayhim ilm (Ghunnah)', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'izhar-shafawi-id-1',
+          prompt: 'Identify the rule:',
+          promptArabic: 'أَمْ عَلِم',
+          choices: [
+            { id: 'izhar', label: 'Izhar Shafawi', isCorrect: true },
+            { id: 'ikhfa', label: 'Ikhfa Shafawi', isCorrect: false },
+            { id: 'idgham', label: 'Idgham Shafawi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-id-2',
+          prompt: 'Identify the rule:',
+          promptArabic: 'هُمْ فِي',
+          choices: [
+            { id: 'izhar', label: 'Izhar Shafawi', isCorrect: true },
+            { id: 'idgham', label: 'Idgham Shafawi', isCorrect: false },
+            { id: 'ikhfa', label: 'Ikhfa Shafawi', isCorrect: false }
+          ]
+        },
+        {
+          id: 'izhar-shafawi-id-3',
+          prompt: 'Why Izhar Shafawi here?',
+          promptArabic: 'عَلَيْهِمْ ذِكْرٌ',
+          choices: [
+            { id: 'meem-other', label: 'Meem Sakin + other letter (Dhal)', isCorrect: true },
+            { id: 'meem-ba', label: 'Meem Sakin + Ba', isCorrect: false },
+            { id: 'meem-meem', label: 'Meem Sakin + Meem', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Stage 6.9: Lam Fihil - Moon and Sun Letters (Al-)
+    {
+      id: 'tajweed-lam-fihil',
+      title: 'Lam Fihil: Moon & Sun Letters in "Al-"',
+      category: 'tajweed',
+      description: 'Lam Fihil rules apply to the letter Lam (ل) in the definite article "Al-" (ال). With Moon letters, Lam is pronounced clearly. With Sun letters, Lam is silent/merged into the following letter.',
+      objectives: [
+        'Memorize the 14 Moon letters.',
+        'Memorize the 14 Sun letters.',
+        'Apply the correct pronunciation for "Al-" with any letter.'
+      ],
+      practiceWords: ['الْقَمَر', 'الشَّمْس', 'الْحَمْدُ', 'الرَّحْمَن', 'النَّاس', 'الْبَيْت'],
+      exercises: [
+        // Concept: What are Moon and Sun letters?
+        {
+          id: 'lam-fihil-concept-1',
+          prompt: 'What happens to Lam in "Al-" with Moon letters?',
+          promptArabic: 'الْقَمَر',
+          promptNote: 'Qaf is a Moon letter.',
+          choices: [
+            { id: 'pronounced', label: 'Lam is PRONOUNCED clearly', isCorrect: true },
+            { id: 'silent', label: 'Lam is SILENT/merged', isCorrect: false },
+            { id: 'ghunnah', label: 'Lam has Ghunnah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'lam-fihil-concept-2',
+          prompt: 'What happens to Lam in "Al-" with Sun letters?',
+          promptArabic: 'الشَّمْس',
+          promptNote: 'Shin is a Sun letter.',
+          choices: [
+            { id: 'silent', label: 'Lam is SILENT/merged into next letter', isCorrect: true },
+            { id: 'pronounced', label: 'Lam is PRONOUNCED', isCorrect: false },
+            { id: 'ghunnah', label: 'Lam has Ghunnah', isCorrect: false }
+          ]
+        },
+        // Moon Letters Practice (Pronounced Lam)
+        {
+          id: 'moon-lam-1',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْقَمَر',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Qamar', isCorrect: true },
+            { id: 'silent', label: 'Silent - Al-Qamar', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-2',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْبَيْت',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Bayt', isCorrect: true },
+            { id: 'silent', label: 'Silent - Abbayt', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-3',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْجَنَّة',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Jannah', isCorrect: true },
+            { id: 'silent', label: 'Silent - Aj-jannah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-4',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْحَمْدُ',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Hamdu', isCorrect: true },
+            { id: 'silent', label: 'Silent - Ahhamdu', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-5',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْخَيْر',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Khayr', isCorrect: true },
+            { id: 'silent', label: 'Silent - Akh-khayr', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-6',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْعَالَمِين',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Aalameen', isCorrect: true },
+            { id: 'silent', label: 'Silent - Aal-aalameen', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-7',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْفَاتِحَة',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Fatihah', isCorrect: true },
+            { id: 'silent', label: 'Silent - Affatihah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-8',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْقِيَامَة',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Qiyamah', isCorrect: true },
+            { id: 'silent', label: 'Silent - Aqqiyamah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-9',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْكَافِرُونَ',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Kafiroon', isCorrect: true },
+            { id: 'silent', label: 'Silent - Ak-kafiroon', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-10',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الْمُسْلِمُونَ',
+          choices: [
+            { id: 'pronounced', label: 'Pronounced - Al-Muslimoon', isCorrect: true },
+            { id: 'silent', label: 'Silent - Am-muslimoon', isCorrect: false }
+          ]
+        },
+        {
+          id: 'moon-lam-11',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْحَمْدُ لِلَّه',
+          choices: [
+            { id: 'alhamdu-lillah', label: 'Al-Hamdu lillah (pronounced Lam)', isCorrect: true },
+            { id: 'ahhamdu-lillah', label: 'Ahhhamdu lillah', isCorrect: false },
+            { id: 'alhamdullah', label: 'Alhamdullah', isCorrect: false }
+          ]
+        },
+        // Sun Letters Practice (Silent Lam)
+        {
+          id: 'sun-lam-1',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الشَّمْس',
+          choices: [
+            { id: 'silent', label: 'Silent - Ash-Shams', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Shams', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-2',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'النَّاس',
+          choices: [
+            { id: 'silent', label: 'Silent - An-Naas', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Naas', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-3',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الرَّحْمَن',
+          choices: [
+            { id: 'silent', label: 'Silent - Ar-Rahman', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Rahman', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-4',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الصَّلَاة',
+          choices: [
+            { id: 'silent', label: 'Silent - As-Salah', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Salah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-5',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'التَّوْبَة',
+          choices: [
+            { id: 'silent', label: 'Silent - At-Tawbah', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Tawbah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-6',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الدُّعَاء',
+          choices: [
+            { id: 'silent', label: 'Silent - Ad-Du\'aa', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Du\'aa', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-7',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الذِّكْر',
+          choices: [
+            { id: 'silent', label: 'Silent - Adh-Dhikr', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Dhikr', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-8',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الزَّكَاة',
+          choices: [
+            { id: 'silent', label: 'Silent - Az-Zakah', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Zakah', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-9',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'السَّلَام',
+          choices: [
+            { id: 'silent', label: 'Silent - As-Salaam', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Salaam', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-10',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الشَّيْطَان',
+          choices: [
+            { id: 'silent', label: 'Silent - Ash-Shaytan', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Shaytan', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-11',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الضُّحَى',
+          choices: [
+            { id: 'silent', label: 'Silent - Ad-Duhaa', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Duhaa', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-12',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الظَّلَام',
+          choices: [
+            { id: 'silent', label: 'Silent - Adh-Zalam', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Zalam', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-13',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'الطَّرِيق',
+          choices: [
+            { id: 'silent', label: 'Silent - At-Tariq', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Tariq', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-14',
+          prompt: 'How is the Lam pronounced?',
+          promptArabic: 'النُّور',
+          choices: [
+            { id: 'silent', label: 'Silent - An-Nur', isCorrect: true },
+            { id: 'pronounced', label: 'Pronounced - Al-Nur', isCorrect: false }
+          ]
+        },
+        {
+          id: 'sun-lam-15',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'بِسْمِ اللَّهِ الرَّحْمَن',
+          choices: [
+            { id: 'bismillahi-arrirahman', label: 'Bismillaahi Ar-Rahmaan', isCorrect: true },
+            { id: 'bismillah-alrahman', label: 'Bismillah Al-Rahman', isCorrect: false },
+            { id: 'bismi-allahi-arrahman', label: 'Bismi Allaahi Ar-Rahman', isCorrect: false }
+          ]
+        },
+        // Identification exercises
+        {
+          id: 'lam-id-1',
+          prompt: 'Is this a Moon or Sun letter?',
+          promptArabic: 'الْقَمَر',
+          choices: [
+            { id: 'moon', label: 'Moon (Qaf) - Lam is pronounced', isCorrect: true },
+            { id: 'sun', label: 'Sun (Qaf) - Lam is silent', isCorrect: false }
+          ]
+        },
+        {
+          id: 'lam-id-2',
+          prompt: 'Is this a Moon or Sun letter?',
+          promptArabic: 'الشَّمْس',
+          choices: [
+            { id: 'sun', label: 'Sun (Shin) - Lam is silent', isCorrect: true },
+            { id: 'moon', label: 'Moon (Shin) - Lam is pronounced', isCorrect: false }
+          ]
+        },
+        {
+          id: 'lam-id-3',
+          prompt: 'Is this a Moon or Sun letter?',
+          promptArabic: 'الْحَمْدُ',
+          choices: [
+            { id: 'moon', label: 'Moon (Haa) - Lam is pronounced', isCorrect: true },
+            { id: 'sun', label: 'Sun (Haa) - Lam is silent', isCorrect: false }
+          ]
+        },
+        {
+          id: 'lam-id-4',
+          prompt: 'Is this a Moon or Sun letter?',
+          promptArabic: 'الرَّحْمَن',
+          choices: [
+            { id: 'sun', label: 'Sun (Raa) - Lam is silent', isCorrect: true },
+            { id: 'moon', label: 'Moon (Raa) - Lam is pronounced', isCorrect: false }
+          ]
+        },
+        {
+          id: 'lam-id-5',
+          prompt: 'Select the correct reading:',
+          promptArabic: 'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِين',
+          promptNote: 'Apply Moon and Sun letter rules.',
+          choices: [
+            { id: 'alhamdu-lillahi-rabbil-alameen', label: 'Al-Hamdu lillaahi Rabbil-aalameen', isCorrect: true },
+            { id: 'alhamdu-lillahi-rabb-al-alamin', label: 'Al-Hamdu lillaahi Rabb al-aalamin', isCorrect: false },
+            { id: 'ahhamdu-lillahi-rabbil-alamin', label: 'Ahhhamdu lillaahi Rabbil-aalamin', isCorrect: false }
+          ]
+        }
+      ]
+    },
+    // Stage 7: Tanwin words
+    {
+      id: 'combo-tanwin-words',
+      title: 'Words with Tanwin',
+      category: 'tajweed',
+      description: 'Practice reading words ending with tanwin (nunation).',
+      objectives: ['Read tanwin fath, kasr, and damm.', 'Recognize indefinite endings.'],
+      practiceWords: ['كِتَابًا', 'رَجُلٌ', 'بَيْتٍ', 'عِلْمًا', 'نُورًا'],
+      exercises: [
+        { id: 'tanwin-1', prompt: 'Select the correct reading:', promptArabic: 'كِتَابًا', choices: [{ id: 'kitaaban', label: 'Kitaaban', isCorrect: true }, { id: 'kitaabin', label: 'Kitaabin', isCorrect: false }, { id: 'kitaabun', label: 'Kitaabun', isCorrect: false }] },
+        { id: 'tanwin-2', prompt: 'Select the correct reading:', promptArabic: 'رَجُلٌ', choices: [{ id: 'rajulun', label: 'Rajulun', isCorrect: true }, { id: 'rajulin', label: 'Rajulin', isCorrect: false }, { id: 'rajulan', label: 'Rajulan', isCorrect: false }] },
+        { id: 'tanwin-3', prompt: 'Select the correct reading:', promptArabic: 'بَيْتٍ', choices: [{ id: 'baytin', label: 'Baytin', isCorrect: true }, { id: 'baytun', label: 'Baytun', isCorrect: false }, { id: 'baytan', label: 'Baytan', isCorrect: false }] },
+        { id: 'tanwin-4', prompt: 'Select the correct reading:', promptArabic: 'عِلْمًا', choices: [{ id: 'ilman', label: 'Ilman', isCorrect: true }, { id: 'ilmun', label: 'Ilmun', isCorrect: false }, { id: 'ilmin', label: 'Ilmin', isCorrect: false }] },
+        { id: 'tanwin-5', prompt: 'Select the correct reading:', promptArabic: 'قَلَمٌ', choices: [{ id: 'qalamun', label: 'Qalamun', isCorrect: true }, { id: 'qalaman', label: 'Qalaman', isCorrect: false }, { id: 'qalamin', label: 'Qalamin', isCorrect: false }] },
+        { id: 'tanwin-6', prompt: 'Select the correct reading:', promptArabic: 'وَلَدًا', choices: [{ id: 'waladan', label: 'Waladan', isCorrect: true }, { id: 'waladun', label: 'Waladun', isCorrect: false }, { id: 'waladin', label: 'Waladin', isCorrect: false }] },
+        { id: 'tanwin-7', prompt: 'Select the correct reading:', promptArabic: 'شَمْسٍ', choices: [{ id: 'shamsin', label: 'Shamsin', isCorrect: true }, { id: 'shamsun', label: 'Shamsun', isCorrect: false }, { id: 'shamsan', label: 'Shamsan', isCorrect: false }] },
+        { id: 'tanwin-8', prompt: 'Select the correct reading:', promptArabic: 'قَمَرٌ', choices: [{ id: 'qamarun', label: 'Qamarun', isCorrect: true }, { id: 'qamaran', label: 'Qamaran', isCorrect: false }, { id: 'qamarin', label: 'Qamarin', isCorrect: false }] },
+        { id: 'tanwin-9', prompt: 'Select the correct reading:', promptArabic: 'نُورًا', choices: [{ id: 'nuran', label: 'Nuran', isCorrect: true }, { id: 'nurun', label: 'Nurun', isCorrect: false }, { id: 'nurin', label: 'Nurin', isCorrect: false }] },
+        { id: 'tanwin-10', prompt: 'Select the correct reading:', promptArabic: 'لَيْلًا', choices: [{ id: 'laylan', label: 'Laylan', isCorrect: true }, { id: 'laylun', label: 'Laylun', isCorrect: false }, { id: 'laylin', label: 'Laylin', isCorrect: false }] },
+        { id: 'tanwin-11', prompt: 'Select the correct reading:', promptArabic: 'يَوْمٌ', choices: [{ id: 'yawmun', label: 'Yawmun', isCorrect: true }, { id: 'yawman', label: 'Yawman', isCorrect: false }, { id: 'yawmin', label: 'Yawmin', isCorrect: false }] },
+        { id: 'tanwin-12', prompt: 'Select the correct reading:', promptArabic: 'أَحَدٌ', choices: [{ id: 'ahadun', label: 'Ahadun', isCorrect: true }, { id: 'ahadan', label: 'Ahadan', isCorrect: false }, { id: 'ahadin', label: 'Ahadin', isCorrect: false }] },
+        { id: 'tanwin-13', prompt: 'Select the correct reading:', promptArabic: 'شَيْءٍ', choices: [{ id: 'shayin', label: 'Shayin', isCorrect: true }, { id: 'shayun', label: 'Shayun', isCorrect: false }, { id: 'shayan', label: 'Shayan', isCorrect: false }] },
+        { id: 'tanwin-14', prompt: 'Select the correct reading:', promptArabic: 'أَمْرًا', choices: [{ id: 'amran', label: 'Amran', isCorrect: true }, { id: 'amrun', label: 'Amrun', isCorrect: false }, { id: 'amrin', label: 'Amrin', isCorrect: false }] },
+        { id: 'tanwin-15', prompt: 'Select the correct reading:', promptArabic: 'قَوْلًا', choices: [{ id: 'qawlan', label: 'Qawlan', isCorrect: true }, { id: 'qawlun', label: 'Qawlun', isCorrect: false }, { id: 'qawlin', label: 'Qawlin', isCorrect: false }] },
+      ],
+    },
     {
       id: 'tajweed-sun-moon',
       title: 'Moon & Sun Letters (Al-Qamari & Al-Shamsi)',
@@ -1012,6 +2974,7 @@ function buildQuranicReadingLessons(): Lesson[] {
       id: `quran-${surah.number}-${verse.verseNumber}`,
       prompt: 'اقرأ هذه الآية',
       promptArabic: verse.arabic,
+      audioUrl: `http://localhost:3001/api/audio/quran/${surah.number}/${verse.verseNumber}`,
       choices: [
         { id: 'read', label: '✓', isCorrect: true },
       ],

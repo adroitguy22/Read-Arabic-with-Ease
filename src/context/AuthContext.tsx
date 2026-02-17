@@ -24,6 +24,8 @@ interface AuthContextType {
   logout: () => void;
   error: string | null;
   clearError: () => void;
+  forgotPassword: (email: string) => Promise<any>;
+  resetPassword: (token: string, newPassword: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -136,15 +138,65 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setStats(null);
     setError(null);
-    
+
     // Clear progress data from localStorage
     localStorage.removeItem('awwal-arabic-hub-progress');
-    
+
     // Reload page to reset all state
     window.location.reload();
   };
 
   const clearError = () => setError(null);
+
+  const forgotPassword = async (email: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`${API_URL}/api/auth/forgot-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Request failed');
+      }
+
+      return data;
+    } catch (err: any) {
+      setError(err.message || 'Request failed');
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const resetPassword = async (token: string, newPassword: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`${API_URL}/api/auth/reset-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, newPassword })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Reset failed');
+      }
+    } catch (err: any) {
+      setError(err.message || 'Reset failed');
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider value={{
@@ -157,7 +209,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       register,
       logout,
       error,
-      clearError
+      clearError,
+      forgotPassword,
+      resetPassword
     }}>
       {children}
     </AuthContext.Provider>
