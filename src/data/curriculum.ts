@@ -2974,7 +2974,7 @@ function buildQuranicReadingLessons(): Lesson[] {
       id: `quran-${surah.number}-${verse.verseNumber}`,
       prompt: 'اقرأ هذه الآية',
       promptArabic: verse.arabic,
-      audioUrl: `http://localhost:3001/api/audio/quran/${surah.number}/${verse.verseNumber}`,
+      audioUrl: `https://read-arabic-with-ease-backend.onrender.com/api/audio/quran/${surah.number}/${verse.verseNumber}`,
       choices: [
         { id: 'read', label: '✓', isCorrect: true },
       ],
