@@ -52,7 +52,7 @@ export function AudioPlayer({
   if (!src) {
     return (
       <div
-        className={`inline-flex items-center gap-2 rounded-full bg-slate-700/50 px-3 py-1.5 text-xs text-slate-400 ${className}`}
+        className={`inline-flex items-center gap-2 rounded-full bg-th-elevated border border-th-border px-3 py-1.5 text-xs text-th-muted ${className}`}
         title="Audio not available"
       >
         <span className="opacity-60">🔇</span>
@@ -68,7 +68,7 @@ export function AudioPlayer({
       <button
         type="button"
         onClick={togglePlay}
-        className="inline-flex items-center gap-1.5 font-medium text-emerald-100 hover:text-emerald-50"
+        className="inline-flex items-center gap-1.5 font-medium text-emerald-700 dark:text-emerald-100 hover:text-emerald-600 dark:hover:text-emerald-50"
         aria-label={playing ? 'Stop' : 'Play'}
       >
         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/80 text-[0.65rem] text-emerald-950">
@@ -77,23 +77,23 @@ export function AudioPlayer({
         {playing ? 'Stop' : label}
       </button>
       {showRepeat && (
-        <label className="flex cursor-pointer items-center gap-1.5 text-slate-300">
+        <label className="flex cursor-pointer items-center gap-1.5 text-th-text-2">
           <input
             type="checkbox"
             checked={loop}
             onChange={(e) => setLoop(e.target.checked)}
-            className="rounded border-slate-500 bg-slate-800 text-emerald-500"
+            className="rounded border-th-border bg-th-input text-emerald-500"
           />
           <span className="text-[0.7rem]">Repeat</span>
         </label>
       )}
       {slowOption && (
-        <label className="flex cursor-pointer items-center gap-1.5 text-slate-300">
+        <label className="flex cursor-pointer items-center gap-1.5 text-th-text-2">
           <input
             type="checkbox"
             checked={slow}
             onChange={(e) => setSlow(e.target.checked)}
-            className="rounded border-slate-500 bg-slate-800 text-emerald-500"
+            className="rounded border-th-border bg-th-input text-emerald-500"
           />
           <span className="text-[0.7rem]">Slower</span>
         </label>

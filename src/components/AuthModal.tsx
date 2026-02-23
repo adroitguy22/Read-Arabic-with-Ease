@@ -34,7 +34,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       } else if (mode === 'forgot-password') {
         const result = await forgotPassword(email);
         setSuccessMessage(result.message);
-        // For dev: auto-fill token if provided
         if (result.devToken) {
           setResetToken(result.devToken);
           setMode('reset-password');
@@ -50,7 +49,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       }
 
       if (mode === 'login' || mode === 'signup') {
-        // Clear form only on successful auth
         setEmail('');
         setPassword('');
         setName('');
@@ -66,6 +64,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     setSuccessMessage('');
   };
 
+  const inputClass = "w-full rounded-lg border border-th-border bg-th-input px-3 py-2 text-th-text placeholder-th-muted focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition";
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
@@ -75,10 +75,10 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-md rounded-2xl border border-emerald-500/30 bg-slate-900/95 p-6 shadow-2xl shadow-emerald-500/20">
+      <div className="relative w-full max-w-md rounded-2xl border border-emerald-500/30 bg-th-elevated p-6 shadow-2xl shadow-emerald-500/10 dark:shadow-emerald-500/20">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-slate-400 hover:text-white"
+          className="absolute right-4 top-4 text-th-muted hover:text-th-text transition"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -86,13 +86,13 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         </button>
 
         <div className="mb-6 text-center">
-          <h2 className="text-2xl font-bold text-emerald-400">
+          <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
             {mode === 'login' && 'Welcome Back'}
             {mode === 'signup' && 'Create Account'}
             {mode === 'forgot-password' && 'Reset Password'}
             {mode === 'reset-password' && 'New Password'}
           </h2>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-th-muted">
             {mode === 'login' && 'Sign in to continue your learning journey'}
             {mode === 'signup' && 'Start tracking your progress today'}
             {mode === 'forgot-password' && 'Enter your email to receive a reset link'}
@@ -101,13 +101,13 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         </div>
 
         {error && (
-          <div className="mb-4 rounded-lg bg-rose-500/20 border border-rose-500/40 p-3 text-sm text-rose-200">
+          <div className="mb-4 rounded-lg bg-rose-500/20 border border-rose-500/40 p-3 text-sm text-rose-600 dark:text-rose-200">
             {error}
           </div>
         )}
 
         {successMessage && (
-          <div className="mb-4 rounded-lg bg-emerald-500/20 border border-emerald-500/40 p-3 text-sm text-emerald-200">
+          <div className="mb-4 rounded-lg bg-emerald-500/20 border border-emerald-500/40 p-3 text-sm text-emerald-700 dark:text-emerald-200">
             {successMessage}
           </div>
         )}
@@ -115,14 +115,14 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">
+              <label className="block text-sm font-medium text-th-text-2 mb-1">
                 Name (optional)
               </label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className={inputClass}
                 placeholder="Your name"
               />
             </div>
@@ -130,7 +130,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
           {(mode === 'login' || mode === 'signup' || mode === 'forgot-password') && (
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">
+              <label className="block text-sm font-medium text-th-text-2 mb-1">
                 Email
               </label>
               <input
@@ -138,7 +138,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className={inputClass}
                 placeholder="you@example.com"
               />
             </div>
@@ -146,7 +146,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
           {(mode === 'login' || mode === 'signup' || mode === 'reset-password') && (
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">
+              <label className="block text-sm font-medium text-th-text-2 mb-1">
                 {mode === 'reset-password' ? 'New Password' : 'Password'}
               </label>
               <input
@@ -155,18 +155,18 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className={inputClass}
                 placeholder="••••••"
               />
               {(mode === 'signup' || mode === 'reset-password') && (
-                <p className="mt-1 text-xs text-slate-500">At least 6 characters</p>
+                <p className="mt-1 text-xs text-th-muted">At least 6 characters</p>
               )}
             </div>
           )}
 
           {mode === 'reset-password' && (
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">
+              <label className="block text-sm font-medium text-th-text-2 mb-1">
                 Confirm Password
               </label>
               <input
@@ -175,7 +175,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className={inputClass}
                 placeholder="••••••"
               />
             </div>
@@ -183,7 +183,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
           {mode === 'reset-password' && resetToken === '' && (
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">
+              <label className="block text-sm font-medium text-th-text-2 mb-1">
                 Reset Token
               </label>
               <input
@@ -191,7 +191,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={resetToken}
                 onChange={(e) => setResetToken(e.target.value)}
                 required
-                className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className={inputClass}
                 placeholder="Paste token here"
               />
             </div>
@@ -212,12 +212,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         <div className="mt-4 text-center text-sm space-y-2">
           {(mode === 'login' || mode === 'signup') && (
             <div>
-              <span className="text-slate-400">
+              <span className="text-th-muted">
                 {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
               </span>
               <button
                 onClick={toggleMode}
-                className="font-medium text-emerald-400 hover:text-emerald-300"
+                className="font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300"
               >
                 {mode === 'login' ? 'Sign up' : 'Sign in'}
               </button>
@@ -231,7 +231,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 clearError();
                 setSuccessMessage('');
               }}
-              className="text-xs text-slate-400 hover:text-emerald-400 transition"
+              className="text-xs text-th-muted hover:text-emerald-600 dark:hover:text-emerald-400 transition"
             >
               Forgot your password?
             </button>
@@ -244,7 +244,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 clearError();
                 setSuccessMessage('');
               }}
-              className="text-emerald-400 hover:text-emerald-300"
+              className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300"
             >
               Back to Sign In
             </button>

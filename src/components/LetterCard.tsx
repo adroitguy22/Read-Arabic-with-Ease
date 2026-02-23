@@ -23,11 +23,11 @@ export function LetterCard({
 
   return (
     <div
-      className={`rounded-2xl border border-white/10 bg-slate-900/60 p-4 ${className}`}
+      className={`rounded-2xl border border-th-border bg-th-surface backdrop-blur-sm p-4 ${className}`}
     >
       <div className="flex flex-col gap-3">
         <div className="flex items-start justify-between gap-2">
-          <div dir="rtl" className="cursor-pointer font-arabic text-4xl text-emerald-50 transition-all hover:scale-110 hover:text-emerald-300 active:scale-95">
+          <div dir="rtl" className="cursor-pointer font-arabic text-4xl text-emerald-700 dark:text-emerald-50 transition-all hover:scale-110 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-95">
             {showForms === 'all'
               ? `${letter.forms.isolated} ${letter.forms.initial} ${letter.forms.medial} ${letter.forms.final}`
               : letter.forms.isolated}
@@ -37,15 +37,15 @@ export function LetterCard({
           )}
         </div>
         <div>
-          <p className="text-sm font-semibold text-slate-100">
+          <p className="text-sm font-semibold text-th-text">
             {letter.name}
-            <span className="ml-2 text-slate-400">({letter.nameAr})</span>
+            <span className="ml-2 text-th-muted">({letter.nameAr})</span>
           </p>
-          <p className="text-[0.7rem] text-slate-400">Sound: {letter.soundHint}</p>
+          <p className="text-[0.7rem] text-th-muted">Sound: {letter.soundHint}</p>
         </div>
         {showArticulation && (
-          <p className="text-xs text-slate-300 leading-relaxed">
-            <span className="text-[0.65rem] uppercase tracking-wider text-emerald-400/80">
+          <p className="text-xs text-th-text-2 leading-relaxed">
+            <span className="text-[0.65rem] uppercase tracking-wider text-emerald-600 dark:text-emerald-400/80">
               Pronunciation tip
             </span>
             <br />
@@ -60,7 +60,7 @@ export function LetterCard({
 interface LetterCardListProps {
   letterIds: string[]
   showArticulation?: boolean
-  /** Backend API base URL (e.g., 'http://localhost:3001') */
+  /** Backend API base URL */
   apiBaseUrl?: string
   className?: string
 }
