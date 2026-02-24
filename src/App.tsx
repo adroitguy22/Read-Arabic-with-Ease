@@ -1,7 +1,7 @@
 import './App.css'
 import { HarakatText } from './components/HarakatText'
 import { AuthModal } from './components/AuthModal'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, useRef } from 'react'
 import { useAuth } from './context/AuthContext'
 import { useProgress } from './context/ProgressContext'
 import { useTheme } from './context/ThemeContext'
@@ -703,6 +703,8 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
   const [exerciseStartTime, setExerciseStartTime] = useState<number>(Date.now())
   const [correctStreak, setCorrectStreak] = useState(0)
   const [sessionId, setSessionId] = useState<string | null>(null)
+  const [audioLoading, setAudioLoading] = useState(false)
+  const exerciseAudioRef = useRef<HTMLAudioElement | null>(null)
 
   const exercise = lesson.exercises[index]
   const isLast = index === lesson.exercises.length - 1
@@ -845,21 +847,51 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
               </div>
             )}
             {exercise.audioUrl && (
-              <button
-                type="button"
-                onClick={() => {
-                  const audio = new Audio(exercise.audioUrl)
-                  audio.play().catch(() => {
-                    // Fail silently if audio is missing
-                  })
-                }}
-                className="inline-flex items-center gap-1.5 rounded-full bg-th-input border border-th-border px-3 py-1.5 text-[0.65rem] sm:text-xs font-medium text-emerald-700 dark:text-emerald-100 ring-1 ring-emerald-500/50 hover:bg-emerald-500/10"
-              >
-                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/80 text-[0.55rem] text-emerald-950">
-                  ▶
-                </span>
-                Play
-              </button>
+              <div className="inline-flex flex-col items-center gap-1">
+                <button
+                  type="button"
+                  disabled={audioLoading}
+                  onClick={() => {
+                    setAudioLoading(true)
+                    const audio = exerciseAudioRef.current ?? new Audio(exercise.audioUrl)
+                    exerciseAudioRef.current = audio
+
+                    const handleLoadStart = () => setAudioLoading(true)
+                    const handleCanPlay = () => setAudioLoading(false)
+                    const handlePlaying = () => setAudioLoading(false)
+                    const handleEnded = () => setAudioLoading(false)
+                    const handleError = () => setAudioLoading(false)
+
+                    audio.addEventListener('loadstart', handleLoadStart)
+                    audio.addEventListener('canplay', handleCanPlay)
+                    audio.addEventListener('playing', handlePlaying)
+                    audio.addEventListener('ended', handleEnded)
+                    audio.addEventListener('error', handleError)
+
+                    audio.play().catch(() => {
+                      setAudioLoading(false)
+                    })
+
+                    // Fallback timeout
+                    setTimeout(() => setAudioLoading(false), 3000)
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-th-input border border-th-border px-3 py-1.5 text-[0.65rem] sm:text-xs font-medium text-emerald-700 dark:text-emerald-100 ring-1 ring-emerald-500/50 hover:bg-emerald-500/10 disabled:opacity-70 disabled:cursor-wait"
+                >
+                  <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/80 text-[0.55rem] text-emerald-950">
+                    {audioLoading ? (
+                      <span className="animate-spin text-[0.5rem]">⟳</span>
+                    ) : (
+                      '▶'
+                    )}
+                  </span>
+                  {audioLoading ? 'Loading...' : 'Play'}
+                </button>
+                {audioLoading && (
+                  <div className="w-16 h-0.5 bg-emerald-950/20 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 animate-pulse rounded-full w-3/4" />
+                  </div>
+                )}
+              </div>
             )}
           </div>
         )}
