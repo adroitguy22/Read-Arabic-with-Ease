@@ -603,7 +603,7 @@ function buildTajweedLessons(): Lesson[] {
         'Apply 2-count elongation correctly.',
         'Distinguish Madda Asli from other Madd types.'
       ],
-      practiceWords: ['قَالَ', 'يَقُولُ', 'قِيلَ', 'خَلَقَ', 'زُيِّنَت', 'كَافِرِين', 'سُبُحَان'],
+      practiceWords: ['قَالَ', 'يَقُولُ', 'قِيلَ', 'خَلَقَ', 'زُيِّنَت', 'نِيلَ', 'سُبُحَان'],
       exercises: [
         // Concept: What is Madda Asli?
         {
@@ -688,12 +688,12 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'madd-asli-read-6',
           prompt: 'Select the correct reading:',
-          promptArabic: 'نِعْمَة',
+          promptArabic: 'نِيلَ',
           promptNote: 'Hold the Madda for 2 counts.',
           choices: [
-            { id: 'ni-mah', label: 'Ni\'mah (long ii)', isCorrect: true },
-            { id: 'namah', label: 'Namah', isCorrect: false },
-            { id: 'nam', label: 'Nam', isCorrect: false }
+            { id: 'neela', label: 'Neela (long ii)', isCorrect: true },
+            { id: 'nila', label: 'Nila', isCorrect: false },
+            { id: 'neel', label: 'Neel', isCorrect: false }
           ]
         },
         {
@@ -1169,7 +1169,7 @@ function buildTajweedLessons(): Lesson[] {
         'Apply 6-count elongation correctly.',
         'Distinguish from other Madd types.'
       ],
-      practiceWords: ['الضُّحَىٰ', 'الْآخِرَة', 'لَدَيْهِ', 'الْحَيَاة', 'الصَّآلِحِين'],
+      practiceWords: ['الضُّحَىٰ', 'الْآخِرَة', 'لَدَيْهِ', 'يُخَرِّج', 'الصِّرَاط'],
       exercises: [
         // Concept
         {
@@ -1231,45 +1231,45 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'madd-lazim-read-4',
           prompt: 'Select the correct reading:',
-          promptArabic: 'الْحَيَاة',
+          promptArabic: 'الصِّرَاطَ',
           promptNote: 'Hold the Madd for 6 counts.',
           choices: [
-            { id: 'alhayaa', label: 'Al-hayaaa (very long aa)', isCorrect: true },
-            { id: 'alhayat', label: 'Al-hayat', isCorrect: false },
-            { id: 'alhayyah', label: 'Al-hayyah', isCorrect: false }
+            { id: 'assirataa', label: 'As-sirataa (very long aa)', isCorrect: true },
+            { id: 'assirat', label: 'As-sirat', isCorrect: false },
+            { id: 'as-siraa', label: 'As-siraa', isCorrect: false }
           ]
         },
         {
           id: 'madd-lazim-read-5',
           prompt: 'Select the correct reading:',
-          promptArabic: 'الصَّآلِحِين',
+          promptArabic: 'الْقَارِئَة',
           promptNote: 'Hold the Madd for 6 counts.',
           choices: [
-            { id: 'assaalihiin', label: 'As-saaalihiin (very long aa)', isCorrect: true },
-            { id: 'assaliin', label: 'As-saliin', isCorrect: false },
-            { id: 'assalihin', label: 'As-salihin', isCorrect: false }
+            { id: 'qari-ah', label: 'Qaarii-ah (very long aa)', isCorrect: true },
+            { id: 'qariah', label: 'Qariah', isCorrect: false },
+            { id: 'qari', label: 'Qari', isCorrect: false }
           ]
         },
         {
           id: 'madd-lazim-read-6',
           prompt: 'Select the correct reading:',
-          promptArabic: 'الطُّور',
+          promptArabic: 'الْحَاقَة',
           promptNote: 'Hold the Madd for 6 counts.',
           choices: [
-            { id: 'at-toor', label: 'At-toooor (very long uu)', isCorrect: true },
-            { id: 'at-tur', label: 'At-tur', isCorrect: false },
-            { id: 'at-tawr', label: 'At-tawr', isCorrect: false }
+            { id: 'haaqataa', label: 'Haaqataa (very long aa)', isCorrect: true },
+            { id: 'haaqata', label: 'Haaqata', isCorrect: false },
+            { id: 'haaqah', label: 'Haaqah', isCorrect: false }
           ]
         },
         {
           id: 'madd-lazim-read-7',
           prompt: 'Select the correct reading:',
-          promptArabic: 'بُورِك',
+          promptArabic: 'النَّبِي',
           promptNote: 'Hold the Madd for 6 counts.',
           choices: [
-            { id: 'buuriika', label: 'Buuuurik (very long uu)', isCorrect: true },
-            { id: 'burika', label: 'Burika', isCorrect: false },
-            { id: 'barika', label: 'Barika', isCorrect: false }
+            { id: 'an-nabiyy', label: 'An-nabiyy (very long ii)', isCorrect: true },
+            { id: 'an-nabi', label: 'An-nabi', isCorrect: false },
+            { id: 'an-nab', label: 'An-nab', isCorrect: false }
           ]
         },
         {
@@ -1286,12 +1286,12 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'madd-lazim-read-9',
           prompt: 'Select the correct reading:',
-          promptArabic: 'تَبَارَك',
+          promptArabic: 'تَنَاوِين',
           promptNote: 'Hold the Madd for 6 counts.',
           choices: [
-            { id: 'tabaaaraka', label: 'Tabaaaraka (very long aa)', isCorrect: true },
-            { id: 'tabarak', label: 'Tabarak', isCorrect: false },
-            { id: 'tabarakka', label: 'Tabarakka', isCorrect: false }
+            { id: 'tanawiin', label: 'Tanawiin (very long aa)', isCorrect: true },
+            { id: 'tanawin', label: 'Tanawin', isCorrect: false },
+            { id: 'tanawwin', label: 'Tanawwin', isCorrect: false }
           ]
         },
         {
@@ -2131,12 +2131,12 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'izhar-shafawi-8',
           prompt: 'Select the correct reading:',
-          promptArabic: 'هُمْ ثَلاثَة',
+          promptArabic: 'هُمْثَلاثَة',
           promptNote: 'Apply Izhar Shafawi.',
           choices: [
-            { id: 'hum-thalathah', label: 'Hum thalathah (clear Meem)', isCorrect: true },
-            { id: 'humthalathah', label: 'Humthalathah', isCorrect: false },
-            { id: 'hum-thalath', label: 'Hum thalath', isCorrect: false }
+            { id: 'humthalathah', label: 'Humthalathah (clear Meem)', isCorrect: true },
+            { id: 'humthalatha', label: 'Humthalatha', isCorrect: false },
+            { id: 'humthalata', label: 'Humthalata', isCorrect: false }
           ]
         },
         {
@@ -2153,7 +2153,7 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'izhar-shafawi-10',
           prompt: 'Select the correct reading:',
-          promptArabic: 'عَلَيْهِمْ قِطْنٌ',
+          promptArabic: 'عَلَيْهِمْقِطْنٌ',
           promptNote: 'Apply Izhar Shafawi.',
           choices: [
             { id: 'alayhim-qitn', label: 'Alayhim qitn (clear Meem)', isCorrect: true },
@@ -2164,7 +2164,7 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'izhar-shafawi-11',
           prompt: 'Select the correct reading:',
-          promptArabic: 'عَنْهُمْ جَنَّات',
+          promptArabic: 'عَنْهُمْجَنَّات',
           promptNote: 'Apply Izhar Shafawi.',
           choices: [
             { id: 'anhumu-jannaat', label: 'Anhumu jannaat (clear Meem)', isCorrect: true },
@@ -2175,7 +2175,7 @@ function buildTajweedLessons(): Lesson[] {
         {
           id: 'izhar-shafawi-12',
           prompt: 'Select the correct reading:',
-          promptArabic: 'لَدَيْهِمْ عِلْمٌ',
+          promptArabic: 'لَدَيْهِمْعِلْمٌ',
           promptNote: 'Apply Izhar Shafawi.',
           choices: [
             { id: 'ladayhim-ilm', label: 'Ladayhim ilm (clear Meem)', isCorrect: true },
