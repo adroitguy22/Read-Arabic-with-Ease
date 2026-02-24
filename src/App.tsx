@@ -659,6 +659,12 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
     }
   }
 
+  const handlePrevious = () => {
+    if (index > 0) {
+      setIndex((prev) => prev - 1)
+    }
+  }
+
   const handleRestart = () => {
     setIndex(0)
   }
@@ -740,19 +746,21 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
               key={choice.id}
               type="button"
               onClick={() => {
-                setSelectedChoiceId(choice.id)
-                if (answered) {
-                  setAnswered(false)
+                if (!answered) {
+                  setSelectedChoiceId(choice.id)
                 }
               }}
+              disabled={answered}
               className={[
                 'group flex items-center gap-2 rounded-xl border px-3 py-2.5 text-left text-xs sm:text-sm transition',
                 'bg-th-elevated hover:bg-th-input',
                 'border-th-border hover:border-emerald-400/50',
+                !answered && 'hover:bg-th-input hover:border-emerald-400/50',
                 isSelected && !answered && 'border-emerald-400/80 bg-emerald-500/10',
                 showAsCorrect &&
                 'border-emerald-400 bg-emerald-500/15 shadow-[0_0_0_1px_rgba(16,185,129,0.4)]',
                 showAsIncorrect && 'border-rose-400 bg-rose-500/10',
+                answered && 'cursor-default opacity-90',
               ]
                 .filter(Boolean)
                 .join(' ')}
@@ -781,6 +789,18 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
           )}
         </div>
         <div className="flex items-center gap-2">
+          {index > 0 && (
+            <button
+              type="button"
+              onClick={handlePrevious}
+              className="inline-flex items-center gap-1 rounded-full bg-th-input px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-th-text ring-1 ring-th-border hover:bg-th-elevated"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Previous
+            </button>
+          )}
           {!answered && (
             <button
               type="button"
@@ -798,6 +818,9 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
               className="inline-flex items-center rounded-full bg-th-input px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-th-text ring-1 ring-th-border hover:bg-th-elevated"
             >
               Next
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
           )}
           {answered && isLast && (
