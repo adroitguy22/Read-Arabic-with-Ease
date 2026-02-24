@@ -114,7 +114,7 @@ const POSITION_GROUPS = [
   { id: 'positions-baa-family', title: 'Baa, Taa, Thaa in words', ids: ['baa', 'taa', 'thaa'] },
   { id: 'positions-jiim-family', title: 'Jiim, Haa, Khaa in words', ids: ['jiim', 'haa', 'khaa'] },
   { id: 'positions-non-connectors', title: 'Daal, Dhaal, Raa, Zaay', ids: ['daal', 'dhaal', 'raa', 'zaay'] },
-  { id: 'positions-rest', title: 'Remaining letters', ids: ['siin', 'shiin', 'saad', 'daad', 'ain', 'ghain', 'faa', 'qaaf', 'kaaf', 'laam', 'miim', 'nuun', 'haa-light', 'waaw', 'yaa'] },
+  { id: 'positions-rest', title: 'Remaining letters', ids: ['siin', 'shiin', 'saad', 'daad', 'taa-heavy', 'dhaa', 'ain', 'ghain', 'faa', 'qaaf', 'kaaf', 'laam', 'miim', 'nuun', 'haa-light', 'waaw', 'yaa'] },
 ]
 
 function buildPositionsLessons(): Lesson[] {
