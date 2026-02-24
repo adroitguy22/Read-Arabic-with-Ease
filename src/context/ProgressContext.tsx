@@ -16,7 +16,7 @@ import {
   type LearnerProgress,
 } from '../types/progress'
 
-const API_URL = 'https://read-arabic-with-ease-backend.onrender.com'
+const API_URL = import.meta.env.DEV ? 'http://localhost:3001' : 'https://read-arabic-with-ease-backend.onrender.com'
 
 interface ProgressContextValue {
   progress: LearnerProgress
@@ -24,6 +24,22 @@ interface ProgressContextValue {
   isCompleted: (levelId: string, lessonId: string) => boolean
   refresh: () => void
   isLoading: boolean
+  // Exercise tracking
+  recordAttempt: (data: {
+    levelId: string
+    lessonId: string
+    exerciseId: string
+    selectedChoiceId: string
+    isCorrect: boolean
+    timeSpent?: number
+    attempts?: number
+  }) => Promise<void>
+  // Study session tracking
+  startStudySession: () => Promise<string | null>
+  endStudySession: (sessionId: string) => Promise<void>
+  updateStudySession: (sessionId: string, updates: { exercisesCompleted?: number; lessonsCompleted?: string[] }) => Promise<void>
+  // Achievements
+  checkAchievements: (actions?: { perfectLesson?: boolean; correctStreak?: number; speedDemon?: boolean }) => Promise<any[]>
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null)
@@ -155,9 +171,134 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [progress]
   )
 
+  // Record exercise attempt
+  const recordAttempt = useCallback(async (data: {
+    levelId: string
+    lessonId: string
+    exerciseId: string
+    selectedChoiceId: string
+    isCorrect: boolean
+    timeSpent?: number
+    attempts?: number
+  }) => {
+    if (!token || !isAuthenticated) return
+
+    try {
+      await fetch(`${API_URL}/api/exercises/attempts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(data)
+      })
+    } catch (err) {
+      console.error('Failed to record attempt:', err)
+    }
+  }, [token, isAuthenticated])
+
+  // Start study session
+  const startStudySession = useCallback(async () => {
+    if (!token || !isAuthenticated) return null
+
+    try {
+      const response = await fetch(`${API_URL}/api/sessions/start`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        return data.session.id
+      }
+    } catch (err) {
+      console.error('Failed to start session:', err)
+    }
+    return null
+  }, [token, isAuthenticated])
+
+  // End study session
+  const endStudySession = useCallback(async (sessionId: string) => {
+    if (!token || !isAuthenticated) return
+
+    try {
+      await fetch(`${API_URL}/api/sessions/end`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ sessionId })
+      })
+    } catch (err) {
+      console.error('Failed to end session:', err)
+    }
+  }, [token, isAuthenticated])
+
+  // Update study session
+  const updateStudySession = useCallback(async (sessionId: string, updates: { exercisesCompleted?: number; lessonsCompleted?: string[] }) => {
+    if (!token || !isAuthenticated) return
+
+    try {
+      await fetch(`${API_URL}/api/sessions/update`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ sessionId, ...updates })
+      })
+    } catch (err) {
+      console.error('Failed to update session:', err)
+    }
+  }, [token, isAuthenticated])
+
+  // Check achievements
+  const checkAchievements = useCallback(async (actions: { perfectLesson?: boolean; correctStreak?: number; speedDemon?: boolean } = {}) => {
+    if (!token || !isAuthenticated) return []
+
+    try {
+      const response = await fetch(`${API_URL}/api/achievements/check`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          stats: {
+            streakDays: progress.streakDays,
+            totalLessonsCompleted: progress.totalLessonsCompleted
+          },
+          actions
+        })
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        return data.newlyUnlocked || []
+      }
+    } catch (err) {
+      console.error('Failed to check achievements:', err)
+    }
+    return []
+  }, [token, isAuthenticated, progress])
+
   const value = useMemo<ProgressContextValue>(
-    () => ({ progress, completeLesson, isCompleted, refresh, isLoading }),
-    [progress, completeLesson, isCompleted, refresh, isLoading]
+    () => ({
+      progress,
+      completeLesson,
+      isCompleted,
+      refresh,
+      isLoading,
+      recordAttempt,
+      startStudySession,
+      endStudySession,
+      updateStudySession,
+      checkAchievements
+    }),
+    [progress, completeLesson, isCompleted, refresh, isLoading, recordAttempt, startStudySession, endStudySession, updateStudySession, checkAchievements]
   )
 
   return (

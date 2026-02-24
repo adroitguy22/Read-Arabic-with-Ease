@@ -8,8 +8,11 @@ import { useTheme } from './context/ThemeContext'
 import { LetterCardList } from './components/LetterCard'
 import { PositionComparisonList } from './components/PositionComparison'
 import { HarakatDemoList } from './components/HarakatDemo'
+import { ProgressDashboard } from './components/ProgressDashboard'
 import type { Lesson, Level } from './data/curriculum'
 import { curriculum } from './data/curriculum'
+
+type ViewMode = 'lesson' | 'progress'
 
 type ActiveSelection = {
   level: Level
@@ -44,6 +47,7 @@ function App() {
   const [active, setSelection] = useActiveSelection()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [authModalOpen, setAuthModalOpen] = useState(false)
+  const [viewMode, setViewMode] = useState<ViewMode>('lesson')
 
   return (
     <div className="min-h-screen bg-th-bg text-th-text overflow-x-hidden">
@@ -57,14 +61,22 @@ function App() {
           <DesktopSidebar
             active={active}
             setSelection={setSelection}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
           />
 
           {/* Main Content Area */}
-          <LessonPanel
-            active={active}
-            setSelection={setSelection}
-            onOpenMobileNav={() => setMobileNavOpen(true)}
-          />
+          {viewMode === 'lesson' ? (
+            <LessonPanel
+              active={active}
+              setSelection={setSelection}
+              onOpenMobileNav={() => setMobileNavOpen(true)}
+            />
+          ) : (
+            <div className="rounded-xl sm:rounded-2xl border border-th-border bg-th-elevated p-3 sm:p-4 lg:p-5">
+              <ProgressDashboard />
+            </div>
+          )}
         </main>
 
         {/* Mobile Navigation Drawer */}
@@ -73,6 +85,7 @@ function App() {
           onClose={() => setMobileNavOpen(false)}
           active={active}
           setSelection={setSelection}
+          setViewMode={setViewMode}
         />
 
         {/* Auth Modal */}
@@ -200,15 +213,41 @@ function Header({ onOpenMobileNav, onOpenAuth }: HeaderProps = {}) {
 interface DesktopSidebarProps {
   active: ActiveSelection
   setSelection: (levelId: string, lessonId?: string) => void
+  viewMode?: ViewMode
+  setViewMode?: (mode: ViewMode) => void
 }
 
-function DesktopSidebar({ active, setSelection }: DesktopSidebarProps) {
+function DesktopSidebar({ active, setSelection, viewMode = 'lesson', setViewMode }: DesktopSidebarProps) {
   const { isCompleted } = useProgress()
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
     <aside className="hidden lg:block space-y-4">
-      {/* Stages Section */}
+      {/* Progress Dashboard Button */}
+      <button
+        onClick={() => setViewMode?.(viewMode === 'lesson' ? 'progress' : 'lesson')}
+        className={[
+          'w-full flex items-center gap-3 rounded-xl px-4 py-3 text-left transition-all',
+          viewMode === 'progress'
+            ? 'bg-gradient-to-r from-emerald-500/20 to-sky-500/10 border border-emerald-500/30'
+            : 'rounded-2xl border border-th-border bg-th-surface hover:border-emerald-500/30'
+        ].join(' ')}
+      >
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 text-white shadow-lg">
+          {viewMode === 'progress' ? '📖' : '📊'}
+        </div>
+        <div className="flex-1">
+          <div className="text-sm font-semibold text-th-text">
+            {viewMode === 'progress' ? 'Back to Lessons' : 'Progress Dashboard'}
+          </div>
+          <div className="text-[0.65rem] text-th-text-2">
+            {viewMode === 'progress' ? 'Continue learning' : 'View your stats'}
+          </div>
+        </div>
+      </button>
+
+      {/* Stages Section - Only show in lesson mode */}
+      {viewMode === 'lesson' && (
       <div className="rounded-2xl border border-th-border bg-th-surface backdrop-blur-sm p-4">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-sm font-semibold text-th-text">Learning Stages</h2>
@@ -252,8 +291,10 @@ function DesktopSidebar({ active, setSelection }: DesktopSidebarProps) {
           })}
         </div>
       </div>
+      )}
 
-      {/* Lessons Section */}
+      {/* Lessons Section - Only show in lesson mode */}
+      {viewMode === 'lesson' && (
       <div className="rounded-2xl border border-th-border bg-th-surface backdrop-blur-sm p-4">
         <h2 className="text-sm font-semibold text-th-text mb-3">{active.level.title}</h2>
         <div className="space-y-1 max-h-[400px] overflow-y-auto pr-1">
@@ -284,6 +325,7 @@ function DesktopSidebar({ active, setSelection }: DesktopSidebarProps) {
           })}
         </div>
       </div>
+      )}
     </aside>
   )
 }
@@ -293,11 +335,12 @@ interface MobileNavDrawerProps {
   onClose: () => void
   active: ActiveSelection
   setSelection: (levelId: string, lessonId?: string) => void
+  setViewMode?: (mode: ViewMode) => void
 }
 
-function MobileNavDrawer({ isOpen, onClose, active, setSelection }: MobileNavDrawerProps) {
+function MobileNavDrawer({ isOpen, onClose, active, setSelection, setViewMode }: MobileNavDrawerProps) {
   const { isCompleted } = useProgress()
-  const [activeTab, setActiveTab] = useState<'stages' | 'lessons'>('stages')
+  const [activeTab, setActiveTab] = useState<'stages' | 'lessons' | 'progress'>('stages')
 
   if (!isOpen) return null
 
@@ -349,10 +392,47 @@ function MobileNavDrawer({ isOpen, onClose, active, setSelection }: MobileNavDra
             >
               Lessons ({active.level.lessons.length})
             </button>
+            <button
+              onClick={() => {
+                setActiveTab('progress')
+                setViewMode?.('progress')
+                onClose()
+              }}
+              className={[
+                'flex-1 py-2 text-xs font-medium rounded-lg transition',
+                activeTab === 'progress'
+                  ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300'
+                  : 'text-th-muted hover:text-th-text'
+              ].join(' ')}
+            >
+              Progress
+            </button>
           </div>
         </div>
 
-        {/* Content */}
+        {/* Content - Progress Tab */}
+        {activeTab === 'progress' && (
+          <div className="flex-1 overflow-y-auto p-3">
+            <button
+              onClick={() => {
+                setViewMode?.('lesson')
+                onClose()
+              }}
+              className="w-full flex items-center gap-3 rounded-xl px-4 py-3 bg-gradient-to-r from-emerald-500/20 to-sky-500/10 border border-emerald-500/30"
+            >
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 text-white">
+                📖
+              </div>
+              <div>
+                <div className="text-sm font-semibold text-th-text">Back to Lessons</div>
+                <div className="text-[0.65rem] text-th-text-2">Continue learning</div>
+              </div>
+            </button>
+          </div>
+        )}
+
+        {/* Content - Stages and Lessons Tabs */}
+        {activeTab !== 'progress' && (
         <div className="flex-1 overflow-y-auto p-3">
           {activeTab === 'stages' ? (
             <div className="space-y-2">
@@ -431,6 +511,7 @@ function MobileNavDrawer({ isOpen, onClose, active, setSelection }: MobileNavDra
             </div>
           )}
         </div>
+        )}
       </div>
     </div>
   )
@@ -614,15 +695,27 @@ interface LessonExercisesProps {
 }
 
 function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonExercisesProps) {
-  const { isCompleted } = useProgress()
+  const { isCompleted, recordAttempt, startStudySession, endStudySession, updateStudySession, checkAchievements } = useProgress()
   const [index, setIndex] = useState(0)
   const [selectedChoiceId, setSelectedChoiceId] = useState<string | null>(null)
   const [answered, setAnswered] = useState(false)
   const [shuffledChoices, setShuffledChoices] = useState<typeof exercise.choices>([])
+  const [exerciseStartTime, setExerciseStartTime] = useState<number>(Date.now())
+  const [correctStreak, setCorrectStreak] = useState(0)
+  const [sessionId, setSessionId] = useState<string | null>(null)
 
   const exercise = lesson.exercises[index]
   const isLast = index === lesson.exercises.length - 1
   const alreadyCompleted = isCompleted(levelId, lesson.id)
+
+  // Start study session on first exercise
+  useEffect(() => {
+    if (index === 0 && exercise) {
+      startStudySession().then(id => {
+        if (id) setSessionId(id)
+      })
+    }
+  }, [])
 
   useEffect(() => {
     if (exercise) {
@@ -634,6 +727,7 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
       setShuffledChoices(array)
       setSelectedChoiceId(null)
       setAnswered(false)
+      setExerciseStartTime(Date.now())
     }
   }, [exercise])
 
@@ -647,15 +741,46 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
 
   const correctChoice = shuffledChoices.find((c) => c.isCorrect)
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     if (!selectedChoiceId) return
     setAnswered(true)
+
+    const isCorrectChoice = correctChoice?.id === selectedChoiceId
+    const timeSpent = Math.round((Date.now() - exerciseStartTime) / 1000)
+
+    // Update correct streak
+    if (isCorrectChoice) {
+      setCorrectStreak(prev => prev + 1)
+    } else {
+      setCorrectStreak(0)
+    }
+
+    // Record attempt
+    await recordAttempt({
+      levelId,
+      lessonId: lesson.id,
+      exerciseId: exercise.id,
+      selectedChoiceId,
+      isCorrect: isCorrectChoice,
+      timeSpent,
+      attempts: 1
+    })
+
+    // Update session progress
+    if (sessionId) {
+      updateStudySession(sessionId, { exercisesCompleted: index + 1 })
+    }
   }
 
   const handleNext = () => {
     if (!answered) return
     if (!isLast) {
       setIndex((prev) => prev + 1)
+    } else {
+      // End study session when lesson is complete
+      if (sessionId) {
+        endStudySession(sessionId)
+      }
     }
   }
 
@@ -667,6 +792,11 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
 
   const handleRestart = () => {
     setIndex(0)
+    setCorrectStreak(0)
+    // Start new session
+    startStudySession().then(id => {
+      if (id) setSessionId(id)
+    })
   }
 
   const isCorrect = answered && selectedChoiceId && shuffledChoices.find((c) => c.id === selectedChoiceId)?.isCorrect
@@ -828,7 +958,12 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
               {!alreadyCompleted && (
                 <button
                   type="button"
-                  onClick={() => onComplete()}
+                  onClick={async () => {
+                    // Check if lesson was perfect (all correct)
+                    const perfectLesson = true // TODO: track per-exercise correctness
+                    await checkAchievements({ perfectLesson, correctStreak })
+                    onComplete()
+                  }}
                   className="inline-flex items-center rounded-full bg-emerald-500 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold text-emerald-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400"
                 >
                   Complete
