@@ -720,6 +720,14 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
   }, [])
 
   useEffect(() => {
+    // Cleanup previous audio when exercise changes
+    if (exerciseAudioRef.current) {
+      exerciseAudioRef.current.pause()
+      exerciseAudioRef.current.currentTime = 0
+      exerciseAudioRef.current = null
+    }
+    setAudioLoading(false)
+    
     if (exercise) {
       const array = [...exercise.choices]
       for (let i = array.length - 1; i > 0; i--) {
@@ -774,8 +782,19 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
     }
   }
 
+  // Helper to cleanup audio
+  const cleanupAudio = () => {
+    if (exerciseAudioRef.current) {
+      exerciseAudioRef.current.pause()
+      exerciseAudioRef.current.currentTime = 0
+      exerciseAudioRef.current = null
+    }
+    setAudioLoading(false)
+  }
+
   const handleNext = () => {
     if (!answered) return
+    cleanupAudio()
     if (!isLast) {
       setIndex((prev) => prev + 1)
     } else {
@@ -788,11 +807,13 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
 
   const handlePrevious = () => {
     if (index > 0) {
+      cleanupAudio()
       setIndex((prev) => prev - 1)
     }
   }
 
   const handleRestart = () => {
+    cleanupAudio()
     setIndex(0)
     setCorrectStreak(0)
     // Start new session
@@ -853,7 +874,13 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
                   disabled={audioLoading}
                   onClick={() => {
                     setAudioLoading(true)
-                    const audio = exerciseAudioRef.current ?? new Audio(exercise.audioUrl)
+                    
+                    // Always create new Audio to ensure correct verse plays
+                    if (exerciseAudioRef.current) {
+                      exerciseAudioRef.current.pause()
+                      exerciseAudioRef.current = null
+                    }
+                    const audio = new Audio(exercise.audioUrl)
                     exerciseAudioRef.current = audio
 
                     const handleLoadStart = () => setAudioLoading(true)

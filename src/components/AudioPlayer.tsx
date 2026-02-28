@@ -25,84 +25,99 @@ export function AudioPlayer({
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const loadingTimeoutRef = useRef<number | null>(null)
 
-  // Clear loading timeout on unmount
+  // Create new audio when src changes, cleanup old one
   useEffect(() => {
-    return () => {
-      if (loadingTimeoutRef.current) {
-        clearTimeout(loadingTimeoutRef.current)
+    if (!src) {
+      audioRef.current = null
+      return
+    }
+
+    // Cleanup existing audio
+    if (audioRef.current) {
+      const oldAudio = audioRef.current
+      if ((oldAudio as any)._cleanup) {
+        (oldAudio as any)._cleanup()
+      }
+      oldAudio.pause()
+      oldAudio.src = ''
+    }
+
+    const audio = new Audio(src)
+    audioRef.current = audio
+
+    const handleCanPlay = () => {
+      setLoading(false)
+      setBufferProgress(100)
+    }
+
+    const handleLoadStart = () => {
+      setLoading(true)
+      setBufferProgress(10)
+    }
+
+    const handleProgress = () => {
+      if (audio.buffered.length > 0) {
+        const buffered = audio.buffered.end(0)
+        const duration = audio.duration || 1
+        const progress = Math.min((buffered / duration) * 100, 90)
+        setBufferProgress(progress)
       }
     }
-  }, [])
+
+    const handleWaiting = () => {
+      setLoading(true)
+    }
+
+    const handlePlaying = () => {
+      setLoading(false)
+      setBufferProgress(100)
+    }
+
+    const handleEnded = () => {
+      setPlaying(false)
+      setLoading(false)
+      setBufferProgress(0)
+    }
+
+    const handleError = () => {
+      setPlaying(false)
+      setLoading(false)
+      setBufferProgress(0)
+    }
+
+    audio.addEventListener('canplay', handleCanPlay)
+    audio.addEventListener('loadstart', handleLoadStart)
+    audio.addEventListener('progress', handleProgress)
+    audio.addEventListener('waiting', handleWaiting)
+    audio.addEventListener('playing', handlePlaying)
+    audio.addEventListener('ended', handleEnded)
+    audio.addEventListener('error', handleError)
+
+    ;(audio as any)._cleanup = () => {
+      audio.removeEventListener('canplay', handleCanPlay)
+      audio.removeEventListener('loadstart', handleLoadStart)
+      audio.removeEventListener('progress', handleProgress)
+      audio.removeEventListener('waiting', handleWaiting)
+      audio.removeEventListener('playing', handlePlaying)
+      audio.removeEventListener('ended', handleEnded)
+      audio.removeEventListener('error', handleError)
+    }
+
+    return () => {
+      if ((audio as any)._cleanup) {
+        (audio as any)._cleanup()
+      }
+      audio.pause()
+      audio.src = ''
+    }
+  }, [src])
 
   const play = useCallback(() => {
-    if (!src) return
+    const audio = audioRef.current
+    if (!src || !audio) return
+
     setLoading(true)
     setBufferProgress(0)
-
-    const audio = audioRef.current ?? new Audio(src)
-    if (!audioRef.current) {
-      audioRef.current = audio
-
-      // Audio loading events
-      const handleCanPlay = () => {
-        setLoading(false)
-        setBufferProgress(100)
-      }
-
-      const handleLoadStart = () => {
-        setLoading(true)
-        setBufferProgress(10)
-      }
-
-      const handleProgress = () => {
-        if (audio.buffered.length > 0) {
-          const buffered = audio.buffered.end(0)
-          const duration = audio.duration || 1
-          const progress = Math.min((buffered / duration) * 100, 90)
-          setBufferProgress(progress)
-        }
-      }
-
-      const handleWaiting = () => {
-        setLoading(true)
-      }
-
-      const handlePlaying = () => {
-        setLoading(false)
-        setBufferProgress(100)
-      }
-
-      const handleEnded = () => {
-        setPlaying(false)
-        setLoading(false)
-        setBufferProgress(0)
-      }
-
-      const handleError = () => {
-        setPlaying(false)
-        setLoading(false)
-        setBufferProgress(0)
-      }
-
-      audio.addEventListener('canplay', handleCanPlay)
-      audio.addEventListener('loadstart', handleLoadStart)
-      audio.addEventListener('progress', handleProgress)
-      audio.addEventListener('waiting', handleWaiting)
-      audio.addEventListener('playing', handlePlaying)
-      audio.addEventListener('ended', handleEnded)
-      audio.addEventListener('error', handleError)
-
-      // Store cleanup function on the audio element
-      ;(audio as any)._cleanup = () => {
-        audio.removeEventListener('canplay', handleCanPlay)
-        audio.removeEventListener('loadstart', handleLoadStart)
-        audio.removeEventListener('progress', handleProgress)
-        audio.removeEventListener('waiting', handleWaiting)
-        audio.removeEventListener('playing', handlePlaying)
-        audio.removeEventListener('ended', handleEnded)
-        audio.removeEventListener('error', handleError)
-      }
-    }
 
     audio.playbackRate = slow ? 0.75 : 1
     audio.loop = loop
@@ -114,7 +129,6 @@ export function AudioPlayer({
 
     setPlaying(true)
 
-    // Fallback: clear loading state after 3 seconds max
     loadingTimeoutRef.current = window.setTimeout(() => {
       setLoading(false)
       setBufferProgress(100)
