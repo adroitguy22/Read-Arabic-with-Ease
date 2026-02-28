@@ -3050,7 +3050,7 @@ export const curriculum: Level[] = [
     id: 'quranic-reading',
     title: 'Qur\'anic Reading',
     stageLabel: 'Expert',
-    description: 'Applied reading with real Qur\'anic verses — from Surah An-Nas to Al-Adiyat, pure Arabic without transliteration.',
+    description: 'Applied reading with real Qur\'anic verses — from Surah Al-Jinn (72) to An-Nas (114), pure Arabic without transliteration.',
     focus: 'Verse reading practice.',
     colorClass: 'from-fuchsia-500/20 to-fuchsia-500/5 border-fuchsia-500/40',
     lessons: buildQuranicReadingLessons(),

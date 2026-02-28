@@ -838,7 +838,7 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
         {(exercise.promptArabic || exercise.audioUrl) && (
           <div className="mt-2 flex flex-col items-end gap-2">
             {exercise.promptArabic && (
-              <div className="rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500/20 to-sky-500/10 px-4 sm:px-6 py-3 sm:py-4 text-right shadow-inner shadow-black/10 dark:shadow-slate-900/80">
+              <div className="rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500/20 to-sky-500/10 px-4 sm:px-6 py-3 sm:py-4 text-right shadow-inner shadow-black/10 dark:shadow-slate-900/80 cursor-pointer hover:scale-[1.02] transition-transform">
                 <HarakatText
                   text={exercise.promptArabic}
                   size="2xl"
