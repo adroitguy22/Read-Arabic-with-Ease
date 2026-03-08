@@ -3587,10 +3587,6 @@ function buildTajweedLessons(): Lesson[] {
     }
   ]
 }
-      ]
-    }
-  ]
-}
 
 // --- Qur'anic Reading Practice (Expert Stage)
 function buildQuranicReadingLessons(): Lesson[] {
