@@ -585,7 +585,628 @@ function buildCombinationLessons(): Lesson[] {
   ]
 }
 
-// --- Tajweed Rules
+// --- Waqf (Quranic Stoppage Symbols)
+function buildWaqfLessons(): Lesson[] {
+  return [
+    // Lesson 1: Introduction to Waqf
+    {
+      id: 'waqf-introduction',
+      title: 'Introduction to Waqf',
+      category: 'tajweed',
+      description: 'Learn the importance of pausing correctly in Quranic recitation and the basic concept of Waqf (stoppage).',
+      objectives: [
+        'Understand why proper pausing matters.',
+        'Learn the difference between mandatory and optional stops.',
+        'Recognize that wrong stops can change meaning.'
+      ],
+      practiceWords: [],
+      exercises: [
+        {
+          id: 'waqf-intro-1',
+          prompt: 'What is Waqf in Tajweed?',
+          promptArabic: '—',
+          choices: [
+            { id: 'stop', label: 'Stopping/Pausing at appropriate places', isCorrect: true },
+            { id: 'fast', label: 'Reading quickly', isCorrect: false },
+            { id: 'memorize', label: 'Memorizing the Quran', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-intro-2',
+          prompt: 'Why is proper pausing important?',
+          promptArabic: '—',
+          choices: [
+            { id: 'meaning', label: 'Wrong stops can change the meaning', isCorrect: true },
+            { id: 'speed', label: 'To read faster', isCorrect: false },
+            { id: 'style', label: 'For better pronunciation only', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-intro-3',
+          prompt: 'Which is better: stopping at every word or connecting?',
+          promptArabic: '—',
+          choices: [
+            { id: 'connect', label: 'Connect where possible, stop only when needed', isCorrect: true },
+            { id: 'stop-all', label: 'Stop at every word', isCorrect: false },
+            { id: 'never', label: 'Never stop while reading', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 2: Stop Completely (م - Waqf al-Mutlaq)
+    {
+      id: 'waqf-mutlaq',
+      title: 'Stop Completely (م)',
+      category: 'tajweed',
+      description: 'The "م" symbol indicates a complete stop. Learn when and how to apply this strongest stopping signal.',
+      objectives: [
+        'Recognize the "م" (Meem) symbol.',
+        'Apply complete stops appropriately.',
+        'Distinguish from lighter pauses.'
+      ],
+      practiceWords: ['الرحمنْ', 'ربّ العالمينْ', 'اللهْ'],
+      exercises: [
+        {
+          id: 'waqf-m-1',
+          prompt: 'What does this symbol indicate?',
+          promptArabic: 'الرحمنْ م',
+          choices: [
+            { id: 'stop-complete', label: 'Stop completely', isCorrect: true },
+            { id: 'continue', label: 'Continue reading', isCorrect: false },
+            { id: 'pause-light', label: 'Light pause only', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-m-2',
+          prompt: 'Identify this waqf symbol:',
+          promptArabic: 'م',
+          choices: [
+            { id: 'mutlaq', label: 'Waqf al-Mutlaq - Stop completely', isCorrect: true },
+            { id: 'breath', label: 'Breath mark', isCorrect: false },
+            { id: 'continue', label: 'Continue', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-m-3',
+          prompt: 'Apply the rule: You see "اللهْ م" - what do you do?',
+          promptArabic: 'اللهْ م',
+          choices: [
+            { id: 'full-stop', label: 'Come to a complete stop', isCorrect: true },
+            { id: 'connect', label: 'Connect to next word', isCorrect: false },
+            { id: 'breathe', label: 'Take a breath and continue', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-m-4',
+          prompt: 'The "م" symbol is also called:',
+          promptArabic: 'م',
+          choices: [
+            { id: 'silent', label: 'Waqf al-Silent (السكت)', isCorrect: true },
+            { id: 'breath', label: 'Breath mark', isCorrect: false },
+            { id: 'continue', label: 'Continuation mark', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-m-5',
+          prompt: 'When you see "م", you should:',
+          promptArabic: '—',
+          choices: [
+            { id: 'stop', label: 'Stop like ending a sentence', isCorrect: true },
+            { id: 'run', label: 'Keep reading without pausing', isCorrect: false },
+            { id: 'skip', label: 'Skip the word entirely', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 3: Light Pause (ج - Breath Mark)
+    {
+      id: 'waqf-breath',
+      title: 'Light Pause (ج)',
+      category: 'tajweed',
+      description: 'The "ج" symbol is the breath mark - a very slight pause like catching your breath.',
+      objectives: [
+        'Recognize the "ج" (Jeeem) symbol.',
+        'Apply the lightest of pauses.',
+        'Distinguish from complete stops.'
+      ],
+      practiceWords: [],
+      exercises: [
+        {
+          id: 'waqf-j-1',
+          prompt: 'What does "ج" indicate?',
+          promptArabic: 'ج',
+          choices: [
+            { id: 'breath', label: 'Very slight pause - catch your breath', isCorrect: true },
+            { id: 'stop', label: 'Complete stop', isCorrect: false },
+            { id: 'continue', label: 'Continue immediately', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-j-2',
+          prompt: 'The breath mark "ج" is:',
+          promptArabic: '—',
+          choices: [
+            { id: 'lightest', label: 'The lightest pause in Quran', isCorrect: true },
+            { id: 'heaviest', label: 'A complete stop', isCorrect: false },
+            { id: 'optional', label: 'Same as complete stop', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-j-3',
+          prompt: 'When should you use the breath mark?',
+          promptArabic: '—',
+          choices: [
+            { id: 'catch-breath', label: 'When you need to catch your breath', isCorrect: true },
+            { id: 'every-word', label: 'At every word', isCorrect: false },
+            { id: 'never', label: 'Never use it while reading', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-j-4',
+          prompt: 'Which is lighter: "م" or "ج"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'j', label: 'ج (lighter)', isCorrect: true },
+            { id: 'm', label: 'م (lighter)', isCorrect: false },
+            { id: 'same', label: 'They are the same', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-j-5',
+          prompt: 'The breath mark comes from the letter:',
+          promptArabic: 'ج',
+          choices: [
+            { id: 'jeem', label: 'Jeem (ج)', isCorrect: true },
+            { id: 'meem', label: 'Meem (م)', isCorrect: false },
+            { id: 'ha', label: 'Ha (ه)', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 4: Qif - Expected Stop (ق)
+    {
+      id: 'waqf-qif',
+      title: 'Expected Stop (ق)',
+      category: 'tajweed',
+      description: 'The "ق" symbol (Qif) indicates it is permissible and expected to stop at this point.',
+      objectives: [
+        'Recognize the "ق" (Qaf) symbol.',
+        'Understand it indicates optional stopping.',
+        'Apply appropriately in recitation.'
+      ],
+      practiceWords: [],
+      exercises: [
+        {
+          id: 'waqf-q-1',
+          prompt: 'What does "ق" indicate?',
+          promptArabic: 'ق',
+          choices: [
+            { id: 'expected', label: 'It is expected/permissible to stop here', isCorrect: true },
+            { id: 'must', label: 'Must stop here', isCorrect: false },
+            { id: 'never', label: 'Never stop here', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-q-2',
+          prompt: '"ق" comes from the Arabic word:',
+          promptArabic: 'ق',
+          choices: [
+            { id: 'qif', label: 'Qif (قِف) - Stop!', isCorrect: true },
+            { id: 'qalam', label: 'Qalam - Pen', isCorrect: false },
+            { id: 'quran', label: 'Quran', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-q-3',
+          prompt: 'With "ق", you should:',
+          promptArabic: '—',
+          choices: [
+            { id: 'optional', label: 'Stop if needed - it is allowed here', isCorrect: true },
+            { id: 'mandatory', label: 'Must stop - no choice', isCorrect: false },
+            { id: 'forbidden', label: 'Cannot stop here', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-q-4',
+          prompt: 'How does "ق" compare to "م"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'lighter', label: 'ق is lighter than م (less strong)', isCorrect: true },
+            { id: 'heavier', label: 'ق is stronger than م', isCorrect: false },
+            { id: 'same', label: 'They mean the same thing', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-q-5',
+          prompt: 'If you see "ق", stopping is:',
+          promptArabic: '—',
+          choices: [
+            { id: 'good', label: 'Good/Acceptable choice', isCorrect: true },
+            { id: 'wrong', label: 'Always wrong', isCorrect: false },
+            { id: 'required', label: 'Required', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 5: Continuation Symbols (ص، ل، ع)
+    {
+      id: 'waqf-continue',
+      title: 'Continue Reading (ص، ل، ع)',
+      category: 'tajweed',
+      description: 'Three symbols indicate you should continue: ص (Sadal), ل (Lam), and ع (Ain). Learn when NOT to stop.',
+      objectives: [
+        'Recognize all three continuation symbols.',
+        'Understand they mean "do not stop here".',
+        'Apply to maintain flow in recitation.'
+      ],
+      practiceWords: [],
+      exercises: [
+        {
+          id: 'waqf-cont-1',
+          prompt: 'What does "ص" (Sadal) indicate?',
+          promptArabic: 'ص',
+          choices: [
+            { id: 'continue', label: 'Continue - do not stop', isCorrect: true },
+            { id: 'stop', label: 'Stop here', isCorrect: false },
+            { id: 'breathe', label: 'Take a breath only', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-cont-2',
+          prompt: 'What does "ل" (Lam) indicate?',
+          promptArabic: 'ل',
+          choices: [
+            { id: 'breathe', label: 'Take a breath and continue', isCorrect: true },
+            { id: 'stop', label: 'Stop completely', isCorrect: false },
+            { id: 'optional', label: 'Optional to stop', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-cont-3',
+          prompt: 'What does "ع" (Ain) indicate?',
+          promptArabic: 'ع',
+          choices: [
+            { id: 'continue', label: 'Continue - general continuation', isCorrect: true },
+            { id: 'stop', label: 'Stop here', isCorrect: false },
+            { id: 'light', label: 'Light pause only', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-cont-4',
+          prompt: 'All three symbols (ص، ل، ع) mean:',
+          promptArabic: '—',
+          choices: [
+            { id: 'continue', label: 'Continue - do not stop', isCorrect: true },
+            { id: 'stop', label: 'Stop here', isCorrect: false },
+            { id: 'optional', label: 'Optional stopping', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-cont-5',
+          prompt: 'If you see "ص" over a word, you should:',
+          promptArabic: 'ص',
+          choices: [
+            { id: 'read-on', label: 'Keep reading to the next word', isCorrect: true },
+            { id: 'stop', label: 'Stop immediately', isCorrect: false },
+            { id: 'repeat', label: 'Repeat the word', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-cont-6',
+          prompt: 'The difference between "ل" and "ع" is:',
+          promptArabic: '—',
+          choices: [
+            { id: 'breath', label: 'ل includes a breath, ع is seamless', isCorrect: true },
+            { id: 'stop', label: 'ل means stop, ع means continue', isCorrect: false },
+            { id: 'none', label: 'No practical difference', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 6: Small Ta (ۚ) - Stop and Continue
+    {
+      id: 'waqf-ta',
+      title: 'Stop & Continue (ۚ)',
+      category: 'tajweed',
+      description: 'The small Ta (ۚ) indicates a pause like a comma - stop briefly then continue.',
+      objectives: [
+        'Recognize the "ۚ" (Small Ta) symbol.',
+        'Apply brief pauses appropriately.',
+        'Understand it is like a comma in English.'
+      ],
+      practiceWords: [],
+      exercises: [
+        {
+          id: 'waqf-ta-1',
+          prompt: 'What does "ۚ" (Small Ta) indicate?',
+          promptArabic: 'ۚ',
+          choices: [
+            { id: 'comma', label: 'Stop briefly (like a comma), then continue', isCorrect: true },
+            { id: 'end', label: 'End of the verse', isCorrect: false },
+            { id: 'continue', label: 'Continue without stopping', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-ta-2',
+          prompt: 'Small Ta is similar to:',
+          promptArabic: '—',
+          choices: [
+            { id: 'comma', label: 'A comma in English', isCorrect: true },
+            { id: 'period', label: 'A period (full stop)', isCorrect: false },
+            { id: 'question', label: 'A question mark', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-ta-3',
+          prompt: 'After seeing "ۚ", you should:',
+          promptArabic: '—',
+          choices: [
+            { id: 'resume', label: 'Stop briefly then continue to next sentence', isCorrect: true },
+            { id: 'end', label: 'End your recitation', isCorrect: false },
+            { id: 'repeat', label: 'Repeat from the beginning', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-ta-4',
+          prompt: 'How long is the pause with "ۚ"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'short', label: 'Very short - like a comma', isCorrect: true },
+            { id: 'long', label: 'Very long - like a period', isCorrect: false },
+            { id: 'none', label: 'No pause at all', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-ta-5',
+          prompt: 'The small Ta looks like:',
+          promptArabic: 'ۚ',
+          choices: [
+            { id: 'tiny-ta', label: 'A tiny version of the letter Ta', isCorrect: true },
+            { id: 'large-ta', label: 'A large Ta', isCorrect: false },
+            { id: 'ha', label: 'The letter Ha', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 7: Laa (لا) - Do Not Stop
+    {
+      id: 'waqf-laa',
+      title: 'Do Not Stop (لا)',
+      category: 'tajweed',
+      description: 'The "لا" symbol is critical - it warns you NOT to stop here as it would change the meaning.',
+      objectives: [
+        'Recognize the "لا" warning symbol.',
+        'Understand stopping would change meaning.',
+        'Apply to maintain correct meaning.'
+      ],
+      practiceWords: [],
+      exercises: [
+        {
+          id: 'waqf-laa-1',
+          prompt: 'What does "لا" indicate?',
+          promptArabic: 'لا',
+          choices: [
+            { id: 'do-not-stop', label: 'Do NOT stop here - it changes meaning!', isCorrect: true },
+            { id: 'stop', label: 'Must stop here', isCorrect: false },
+            { id: 'optional', label: 'Optional to stop', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-laa-2',
+          prompt: 'Why is "لا" important?',
+          promptArabic: '—',
+          choices: [
+            { id: 'meaning', label: 'Stopping would change the meaning incorrectly', isCorrect: true },
+            { id: 'respect', label: 'Show respect to Allah', isCorrect: false },
+            { id: 'speed', label: 'To read faster', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-laa-3',
+          prompt: 'If you see "لا", you should:',
+          promptArabic: '—',
+          choices: [
+            { id: 'connect', label: 'Connect to next word - never stop!', isCorrect: true },
+            { id: 'stop', label: 'Stop immediately', isCorrect: false },
+            { id: 'breathe', label: 'Take a breath and continue', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-laa-4',
+          prompt: '"لا" is the most important waqf rule because:',
+          promptArabic: '—',
+          choices: [
+            { id: 'meaning', label: 'Wrong stops can completely change the message', isCorrect: true },
+            { id: 'rhythm', label: 'It sounds better', isCorrect: false },
+            { id: 'easy', label: 'It is the easiest rule', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-laa-5',
+          prompt: 'Example: "لا إِلَهَ إِلَّا اللَّه" - where is "لا" placed?',
+          promptArabic: '—',
+          choices: [
+            { id: 'between', label: 'Between parts to show connection needed', isCorrect: true },
+            { id: 'end', label: 'At the end to stop', isCorrect: false },
+            { id: 'start', label: 'At the start only', isCorrect: false }
+          ]
+        }
+      ]
+    },
+
+    // Lesson 8: Comprehensive Review
+    {
+      id: 'waqf-review',
+      title: 'Waqf Comprehensive Review',
+      category: 'tajweed',
+      description: 'Practice identifying and applying all waqf symbols in various contexts.',
+      objectives: [
+        'Identify all 8 waqf symbols.',
+        'Apply correct pausing rules.',
+        'Build confidence in recitation.'
+      ],
+      practiceWords: ['الرحمنْ', 'ربّ العالمينْ', 'اللهْ', 'الحمدْ'],
+      exercises: [
+        {
+          id: 'waqf-rev-1',
+          prompt: 'Which symbol means "stop completely"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'm', label: 'م', isCorrect: true },
+            { id: 'j', label: 'ج', isCorrect: false },
+            { id: 'sad', label: 'ص', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-2',
+          prompt: 'Which symbol means "continue"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'sad-lam-ayn', label: 'ص، ل، or ع', isCorrect: true },
+            { id: 'm', label: 'م', isCorrect: false },
+            { id: 'q', label: 'ق', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-3',
+          prompt: 'Which is the lightest pause?',
+          promptArabic: '—',
+          choices: [
+            { id: 'j', label: 'ج (breath mark)', isCorrect: true },
+            { id: 'm', label: 'م (complete stop)', isCorrect: false },
+            { id: 'ta', label: 'ۚ (small ta)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-4',
+          prompt: 'What does this indicate: ۚ',
+          promptArabic: '—',
+          choices: [
+            { id: 'comma', label: 'Stop like a comma, then continue', isCorrect: true },
+            { id: 'stop', label: 'Complete stop', isCorrect: false },
+            { id: 'continue', label: 'Continue without pause', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-5',
+          prompt: 'You see "لا" - what should you do?',
+          promptArabic: '—',
+          choices: [
+            { id: 'never-stop', label: 'Never stop here - connect to next word', isCorrect: true },
+            { id: 'stop', label: 'Stop here', isCorrect: false },
+            { id: 'optional', label: 'Optional to stop', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-6',
+          prompt: 'Which symbol means "take a breath and continue"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'lam', label: 'ل (Lam)', isCorrect: true },
+            { id: 'sad', label: 'ص (Sadal)', isCorrect: false },
+            { id: 'ayn', label: 'ع (Ain)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-7',
+          prompt: '"ق" indicates:',
+          promptArabic: '—',
+          choices: [
+            { id: 'expected', label: 'Expected/permissible to stop', isCorrect: true },
+            { id: 'forbidden', label: 'Forbidden to stop', isCorrect: false },
+            { id: 'complete', label: 'Complete stop required', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-8',
+          prompt: 'How many main waqf symbols are there?',
+          promptArabic: '—',
+          choices: [
+            { id: 'eight', label: '8 symbols', isCorrect: true },
+            { id: 'three', label: '3 symbols', isCorrect: false },
+            { id: 'twenty', label: '20 symbols', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-9',
+          prompt: '"ص" comes from the letter:',
+          promptArabic: '—',
+          choices: [
+            { id: 'sad', label: 'Sad (ص)', isCorrect: true },
+            { id: 'sin', label: 'Sin (س)', isCorrect: false },
+            { id: 'shin', label: 'Shin (ش)', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-10',
+          prompt: 'The "لا" symbol prevents:',
+          promptArabic: '—',
+          choices: [
+            { id: 'wrong-meaning', label: 'Stopping that changes meaning incorrectly', isCorrect: true },
+            { id: 'fast-reading', label: 'Reading too fast', isCorrect: false },
+            { id: 'memorization', label: 'Memorizing the verse', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-11',
+          prompt: 'Identify: م',
+          promptArabic: '—',
+          choices: [
+            { id: 'silent', label: 'Waqf al-Mutlaq - Stop completely', isCorrect: true },
+            { id: 'breath', label: 'Breath mark', isCorrect: false },
+            { id: 'continue', label: 'Continue', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-12',
+          prompt: 'Identify: ج',
+          promptArabic: '—',
+          choices: [
+            { id: 'breath', label: 'Breath mark - very light pause', isCorrect: true },
+            { id: 'stop', label: 'Complete stop', isCorrect: false },
+            { id: 'continue', label: 'Continue', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-13',
+          prompt: 'Identify: ص',
+          promptArabic: '—',
+          choices: [
+            { id: 'continue', label: 'Continue - do not stop', isCorrect: true },
+            { id: 'stop', label: 'Stop here', isCorrect: false },
+            { id: 'breathe', label: 'Take a breath', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-14',
+          prompt: 'Identify: ۚ',
+          promptArabic: '—',
+          choices: [
+            { id: 'small-ta', label: 'Small Ta - stop briefly like a comma', isCorrect: true },
+            { id: 'stop', label: 'Complete stop', isCorrect: false },
+            { id: 'continue', label: 'Continue', isCorrect: false }
+          ]
+        },
+        {
+          id: 'waqf-rev-15',
+          prompt: 'Which symbols indicate "continue"?',
+          promptArabic: '—',
+          choices: [
+            { id: 'sad-lam-ayn', label: 'ص، ل، ع', isCorrect: true },
+            { id: 'm-j', label: 'م and ج', isCorrect: false },
+            { id: 'q-ta', label: 'ق and ۚ', isCorrect: false }
+          ]
+        }
+      ]
+    }
+  ]
+}
 function buildTajweedLessons(): Lesson[] {
   return [
     // ============================================
@@ -2963,251 +3584,9 @@ function buildTajweedLessons(): Lesson[] {
           ]
         },
       ]
-    },
-
-    // Waqf (Quranic Stoppage Symbols)
-    {
-      id: 'tajweed-waqf',
-      title: 'Waqf (Stoppage Signs)',
-      category: 'tajweed',
-      description: 'Learn the Quranic stoppage symbols (وايقاف) that indicate where to pause during recitation.',
-      objectives: [
-        'Recognize all 7 main Waqf symbols.',
-        'Understand when to stop vs continue.',
-        'Apply correct pausing rules.'
-      ],
-      practiceWords: ['الرحمنْ', 'رب العالمينْ', 'اللهْ', 'الحمدْ'],
-      exercises: [
-        // Symbol 1: Silent (م) - Stop completely
-        {
-          id: 'waqf-silent',
-          prompt: 'What does this symbol mean?',
-          promptArabic: 'الرحمنْ',
-          promptNote: 'The symbol "م" (Silent) above the word.',
-          choices: [
-            { id: 'stop-completely', label: 'Stop completely (Waqf al-Mutlaq)', isCorrect: true },
-            { id: 'pause-slight', label: 'Slight pause', isCorrect: false },
-            { id: 'continue', label: 'Continue without stopping', isCorrect: false }
-          ]
-        },
-        // Symbol 2: Slight pause (ج)
-        {
-          id: 'waqf-slight',
-          prompt: 'What does this symbol indicate?',
-          promptArabic: '—',
-          promptNote: 'The symbol "ج" (Jeeem) - like a light breath.',
-          choices: [
-            { id: 'slight-pause', label: 'Slight pause, then continue', isCorrect: true },
-            { id: 'stop-completely', label: 'Stop completely', isCorrect: false },
-            { id: 'continue', label: 'Continue immediately', isCorrect: false }
-          ]
-        },
-        // Symbol 3: Qif (ق) - Stop is expected
-        {
-          id: 'waqf-qif',
-          prompt: 'What does "ق" (Qif) indicate?',
-          promptArabic: '—',
-          promptNote: 'The symbol "ق" from "Qif" (Pause).',
-          choices: [
-            { id: 'expected-stop', label: 'It is permissible/expected to stop here', isCorrect: true },
-            { id: 'must-stop', label: 'Must stop here', isCorrect: false },
-            { id: 'continue', label: 'Continue (do not stop)', isCorrect: false }
-          ]
-        },
-        // Symbol 4: Sadal (ص) - Continue
-        {
-          id: 'waqf-continue',
-          prompt: 'What does "ص" (Sadal) indicate?',
-          promptArabic: '—',
-          promptNote: 'The symbol "ص" (Sad) - Continue!',
-          choices: [
-            { id: 'continue', label: 'Continue reading (better not to stop)', isCorrect: true },
-            { id: 'stop', label: 'Stop here', isCorrect: false },
-            { id: 'pause', label: 'Slight pause only', isCorrect: false }
-          ]
-        },
-        // Symbol 5: Lam (ل) - Continue with breath
-        {
-          id: 'waqf-breath',
-          prompt: 'What does "ل" (Lam) indicate?',
-          promptArabic: '—',
-          promptNote: 'Take a breath and continue.',
-          choices: [
-            { id: 'breathe-continue', label: 'Take a breath and continue', isCorrect: true },
-            { id: 'stop', label: 'Stop completely', isCorrect: false },
-            { id: 'continue', label: 'Continue without pause', isCorrect: false }
-          ]
-        },
-        // Symbol 6: Ain (ع) - Continue
-        {
-          id: 'waqf-ayn',
-          prompt: 'What does "ع" (Ain) indicate?',
-          promptArabic: '—',
-          promptNote: 'Continue (from "Aam - عَام").',
-          choices: [
-            { id: 'continue', label: 'Continue (general continuation)', isCorrect: true },
-            { id: 'stop', label: 'Stop here', isCorrect: false },
-            { id: 'pause', label: 'Pause briefly', isCorrect: false }
-          ]
-        },
-        // Symbol 7: Small Ta (ۚ) - Stop and continue
-        {
-          id: 'waqf-small-ta',
-          prompt: 'What does "ۚ" (Small Ta) indicate?',
-          promptArabic: '—',
-          promptNote: 'Stop here, then continue to next sentence.',
-          choices: [
-            { id: 'stop-continue', label: 'Stop and continue (short pause)', isCorrect: true },
-            { id: 'stop', label: 'Stop only', isCorrect: false },
-            { id: 'continue', label: 'Continue without stopping', isCorrect: false }
-          ]
-        },
-        // Symbol 8: Laa (لا) - Do not stop
-        {
-          id: 'waqf-laa',
-          prompt: 'What does "لا" indicate?',
-          promptArabic: '—',
-          promptNote: 'Do NOT stop here - it would change the meaning.',
-          choices: [
-            { id: 'do-not-stop', label: 'Do not stop here', isCorrect: true },
-            { id: 'stop', label: 'Must stop here', isCorrect: false },
-            { id: 'optional-stop', label: 'Optional to stop', isCorrect: false }
-          ]
-        },
-        // Practice exercises - identify symbols in context
-        {
-          id: 'waqf-practice-1',
-          prompt: 'Identify the stoppage sign:',
-          promptArabic: 'الرحمنْ',
-          promptNote: 'Look for the symbol over the word.',
-          choices: [
-            { id: 'silent-m', label: 'م (Silent - stop completely)', isCorrect: true },
-            { id: 'qif', label: 'ق (Qif - expected stop)', isCorrect: false },
-            { id: 'continue-s', label: 'ص (Sadal - continue)', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-2',
-          prompt: 'Which sign means "continue"?',
-          promptArabic: '—',
-          promptNote: 'Three symbols indicate continuation.',
-          choices: [
-            { id: 'sad-lam-ayn', label: 'ص, ل, ع all mean continue', isCorrect: true },
-            { id: 'qif-only', label: 'Only ق means continue', isCorrect: false },
-            { id: 'none', label: 'None of them', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-3',
-          prompt: 'What is the rule for "لا" (Laa)?',
-          promptArabic: '—',
-          promptNote: 'When you see "لا", what should you do?',
-          choices: [
-            { id: 'never-stop', label: 'Never stop - would change meaning', isCorrect: true },
-            { id: 'must-stop', label: 'Must stop here', isCorrect: false },
-            { id: 'optional', label: 'Optional to stop', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-4',
-          prompt: 'Which sign is for "stop completely"?',
-          promptArabic: '—',
-          promptNote: 'The strongest stopping signal.',
-          choices: [
-            { id: 'silent-m', label: 'م (Silent - Waqf al-Mutlaq)', isCorrect: true },
-            { id: 'j', label: 'ج (Slight pause)', isCorrect: false },
-            { id: 'small-ta', label: 'ۚ (Stop and continue)', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-5',
-          prompt: 'What does "ج" indicate?',
-          promptArabic: '—',
-          promptNote: 'A very light pause, like catching your breath.',
-          choices: [
-            { id: 'light-pause', label: 'Very slight pause (breath mark)', isCorrect: true },
-            { id: 'stop', label: 'Full stop', isCorrect: false },
-            { id: 'continue', label: 'Continue immediately', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-6',
-          prompt: 'Which symbol means "take a breath and continue"?',
-          promptArabic: '—',
-          promptNote: 'From the letter Lam.',
-          choices: [
-            { id: 'lam', label: 'ل (Lam)', isCorrect: true },
-            { id: 'sad', label: 'ص (Sad)', isCorrect: false },
-            { id: 'qif', label: 'ق (Qif)', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-7',
-          prompt: 'Which symbol is "Stop and continue"?',
-          promptArabic: '—',
-          promptNote: 'Similar to a comma in English.',
-          choices: [
-            { id: 'small-ta', label: 'ۚ (Small Ta)', isCorrect: true },
-            { id: 'silent-m', label: 'م (Silent)', isCorrect: false },
-            { id: 'laa', label: 'لا (Laa)', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-8',
-          prompt: 'What does "ق" stand for?',
-          promptArabic: '—',
-          promptNote: 'From the Arabic word for "stop".',
-          choices: [
-            { id: 'qif', label: 'Qif (قِف) - Pause/Stop', isCorrect: true },
-            { id: 'qalam', label: 'Qalam - Pen', isCorrect: false },
-            { id: 'quran', label: 'Quran', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-9',
-          prompt: 'Which is the lightest pause?',
-          promptArabic: '—',
-          promptNote: 'The most subtle of all pauses.',
-          choices: [
-            { id: 'j', label: 'ج (Jeeem - very light)', isCorrect: true },
-            { id: 'm', label: 'م (Silent - complete)', isCorrect: false },
-            { id: 'ta', label: 'ۚ (Small Ta)', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-practice-10',
-          prompt: 'Why is "لا" important?',
-          promptArabic: '—',
-          promptNote: 'Stopping here would change the meaning.',
-          choices: [
-            { id: 'meaning', label: 'It prevents stopping that changes meaning', isCorrect: true },
-            { id: 'respect', label: 'Show respect', isCorrect: false },
-            { id: 'optional', label: 'Optional rule', isCorrect: false }
-          ]
-        },
-        // Real Quranic examples
-        {
-          id: 'waqf-example-1',
-          prompt: 'Identify the stoppage here:',
-          promptArabic: 'الرحمنْ',
-          promptNote: 'From Surah Al-Fatiha.',
-          choices: [
-            { id: 'silent', label: 'م (Stop completely)', isCorrect: true },
-            { id: 'continue', label: 'Continue', isCorrect: false },
-            { id: 'slight', label: 'Slight pause', isCorrect: false }
-          ]
-        },
-        {
-          id: 'waqf-example-2',
-          prompt: 'The "لا" in the Quran prevents:',
-          promptArabic: '—',
-          promptNote: 'Important for correct meaning.',
-          choices: [
-            { id: 'wrong-meaning', label: 'Stopping where meaning would change', isCorrect: true },
-            { id: 'fast-reading', label: 'Reading too fast', isCorrect: false },
-            { id: 'memorizing', label: 'Memorization', isCorrect: false }
-          ]
-        }
+    }
+  ]
+}
       ]
     }
   ]
@@ -3300,5 +3679,14 @@ export const curriculum: Level[] = [
     focus: 'Verse reading practice.',
     colorClass: 'from-fuchsia-500/20 to-fuchsia-500/5 border-fuchsia-500/40',
     lessons: buildQuranicReadingLessons(),
+  },
+  {
+    id: 'waqf-rules',
+    title: 'Waqf (Stoppage Signs)',
+    stageLabel: 'Expert',
+    description: 'Master the Quranic stoppage symbols that indicate where to pause during recitation — essential for correct meaning.',
+    focus: 'Stop and continue signs.',
+    colorClass: 'from-orange-500/20 to-orange-500/5 border-orange-500/40',
+    lessons: buildWaqfLessons(),
   },
 ]
