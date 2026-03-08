@@ -88,11 +88,42 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const mergedProgress = mergeProgress(loadProgress(), backendProgress)
         setProgress(mergedProgress)
         saveProgress(mergedProgress)
+
+        // Sync any local-only progress to backend
+        await syncLocalProgressToBackend(mergedProgress, backendProgress)
       }
     } catch (err) {
       console.error('Failed to load progress from backend:', err)
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  // Sync local progress items that don't exist in backend
+  const syncLocalProgressToBackend = async (local: LearnerProgress, backend: LearnerProgress) => {
+    if (!token || !isAuthenticated) return
+
+    const backendLessonKeys = new Set(
+      backend.lessonProgress.map(p => `${p.levelId}-${p.lessonId}`)
+    )
+
+    const lessonsToSync = local.lessonProgress.filter(
+      p => !backendLessonKeys.has(`${p.levelId}-${p.lessonId}`)
+    )
+
+    for (const lesson of lessonsToSync) {
+      try {
+        await fetch(`${API_URL}/api/progress/complete`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ levelId: lesson.levelId, lessonId: lesson.lessonId })
+        })
+      } catch (err) {
+        console.error('Failed to sync lesson to backend:', err)
+      }
     }
   }
 
@@ -158,7 +189,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       })
 
       // Sync with backend if authenticated
-      if (isAuthenticated) {
+      if (isAuthenticated && token) {
         await syncWithBackend(levelId, lessonId)
       }
     },
