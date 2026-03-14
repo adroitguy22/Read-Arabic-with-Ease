@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_URL } from '../context/ProgressContext'
 
 interface AnalyticsOverview {
   totalLessonsCompleted: number
@@ -59,10 +60,10 @@ export function ProgressDashboard() {
 
   const fetchAnalytics = async () => {
     try {
-      const token = localStorage.getItem('authToken')
+      const token = localStorage.getItem('token')
       if (!token) return
 
-      const response = await fetch('http://localhost:3001/api/analytics/overview', {
+      const response = await fetch(`${API_URL}/api/analytics/overview`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (response.ok) {
@@ -78,10 +79,10 @@ export function ProgressDashboard() {
 
   const fetchAchievements = async () => {
     try {
-      const token = localStorage.getItem('authToken')
+      const token = localStorage.getItem('token')
       if (!token) return
 
-      const response = await fetch('http://localhost:3001/api/achievements', {
+      const response = await fetch(`${API_URL}/api/achievements`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (response.ok) {
@@ -96,10 +97,10 @@ export function ProgressDashboard() {
 
   const fetchCalendar = async () => {
     try {
-      const token = localStorage.getItem('authToken')
+      const token = localStorage.getItem('token')
       if (!token) return
 
-      const response = await fetch('http://localhost:3001/api/analytics/calendar?days=90', {
+      const response = await fetch(`${API_URL}/api/analytics/calendar?days=90`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (response.ok) {

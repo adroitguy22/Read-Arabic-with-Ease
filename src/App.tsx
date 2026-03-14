@@ -717,7 +717,7 @@ function LessonExercises({ lesson, levelId, onComplete, onNextLesson }: LessonEx
         if (id) setSessionId(id)
       })
     }
-  }, [])
+  }, [lesson.id])
 
   useEffect(() => {
     // Cleanup previous audio when exercise changes
